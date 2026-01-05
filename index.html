@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chicken Maniya | The Best Fried Chicken in Town</title>
+    <!-- Favicon: Uses your logo in the browser tab -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -107,13 +110,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center">
-                    <a href="#" class="flex items-center gap-3 group">
-                        <div class="bg-brand-red text-white p-2 rounded-lg transform -rotate-6 group-hover:rotate-0 transition duration-300 shadow-lg border border-white/20">
-                            <i class="fas fa-drumstick-bite text-2xl md:text-3xl"></i>
-                        </div>
-                        <div class="flex flex-col leading-none justify-center">
-                            <span class="font-heading text-white text-sm md:text-base tracking-[0.3em] uppercase opacity-90">Chicken</span>
-                            <span class="font-heading text-brand-red text-3xl md:text-4xl font-bold uppercase -mt-1 tracking-wider text-shadow-sm">Maniya</span>
+                    <a href="#" class="flex items-center gap-3">
+                        <!-- LOGO UPDATE: This image tag looks for 'logo.png' -->
+                        <!-- If logo fails to load, it falls back to text -->
+                        <img src="logo.png" alt="Chicken Maniya" class="h-12 md:h-16 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        
+                        <!-- Fallback Text Logo (Hidden if image loads) -->
+                        <div class="hidden flex-col leading-none justify-center" style="display: none;">
+                            <span class="font-heading text-white text-sm tracking-[0.3em] uppercase opacity-90">Chicken</span>
+                            <span class="font-heading text-brand-red text-3xl font-bold uppercase -mt-1 tracking-wider">Maniya</span>
                         </div>
                     </a>
                 </div>
@@ -240,7 +245,7 @@
                 <div class="bg-white p-5 md:p-8 rounded-xl shadow-sm border border-brand-red/20 relative overflow-hidden">
                     <div class="absolute top-0 right-0 bg-brand-yellow px-3 py-1 font-bold text-xs uppercase shadow">Best Seller</div>
                     <h3 class="font-heading text-3xl text-brand-dark mb-2 font-bold">ROSCOES</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Chicken (orig/spicy) + 4 regular fries & a bottled drink</p>
+                    <p class="text-gray-600 mb-4 text-sm">Fried chicken (orig/spicy) + 4 regular fries & a bottled drink</p>
                     <div class="flex gap-2">
                         <button onclick="addToCart('Roscoes Bucket (8pcs)', 15.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
                             <span class="block font-heading text-2xl text-brand-red font-bold">8pcs</span>
@@ -299,7 +304,7 @@
                 <!-- Variety Bucket -->
                 <div class="bg-white p-5 md:p-8 rounded-xl shadow-sm border border-gray-200">
                     <h3 class="font-heading text-2xl text-brand-dark mb-2 font-bold">VARIETY</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Chicken + 6 wings, 4 strips, 1 bites, 2 sides, 4 fries, drink</p>
+                    <p class="text-gray-600 mb-4 text-sm">Fried chicken (orig/spicy) + 6 wings, 4 strips, 1 bites, 2 sides, 4 fries, drink</p>
                     <div class="grid grid-cols-3 gap-2">
                         <button onclick="addToCart('Variety Bucket (4pcs)', 17.99)" class="bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center">
                             <div class="text-brand-red font-heading font-bold text-xl">4pcs</div>
@@ -391,7 +396,7 @@
                 
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-transparent">
                     <h3 class="font-heading text-xl font-bold text-brand-red mb-1">Smoky BBQ Burger</h3>
-                    <p class="text-gray-600 text-xs mb-4">Sticky smoky bbq sauce, lettuce & mayo</p>
+                    <p class="text-gray-600 text-xs mb-4">Breast fillet covered in sticky smoky bbq sauce with lettuce & mayo</p>
                     <div class="flex justify-between items-center">
                         <span class="font-heading text-2xl font-bold text-brand-dark">£6.29</span>
                         <button onclick="addToCart('Smoky BBQ Burger', 6.29)" class="add-btn"><i class="fas fa-plus"></i> Add</button>
@@ -400,7 +405,7 @@
 
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-transparent">
                     <h3 class="font-heading text-xl font-bold text-brand-red mb-1">Smoky BBQ Wrap</h3>
-                    <p class="text-gray-600 text-xs mb-4">Sticky smoky bbq sauce, lettuce & mayo</p>
+                    <p class="text-gray-600 text-xs mb-4">Breast fillet pieces in sticky smoky bbq sauce with lettuce & mayo in a tortilla wrap</p>
                     <div class="flex justify-between items-center">
                         <span class="font-heading text-2xl font-bold text-brand-dark">£6.59</span>
                         <button onclick="addToCart('Smoky BBQ Wrap', 6.59)" class="add-btn"><i class="fas fa-plus"></i> Add</button>
@@ -410,7 +415,7 @@
                 <!-- Tortilla Wrap with Selector -->
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-transparent">
                     <h3 class="font-heading text-xl font-bold text-brand-red mb-1">Tortilla Wrap</h3>
-                    <p class="text-gray-600 text-xs mb-3">With melted cheese & mayo</p>
+                    <p class="text-gray-600 text-xs mb-3">Toasted tortilla wrap with melted cheese & mayo + filling</p>
                     <div class="bg-gray-50 p-2 rounded mb-3">
                         <label class="text-xs font-bold text-gray-500 block mb-1">Choose Filling:</label>
                         <select id="tortilla-fill" class="w-full p-2 text-sm border rounded bg-white">
@@ -439,7 +444,7 @@
                 <!-- Paninis with Selector -->
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-transparent">
                     <h3 class="font-heading text-xl font-bold text-brand-red mb-1">Paninis</h3>
-                    <p class="text-gray-600 text-xs mb-3">Melted cheese & mayo</p>
+                    <p class="text-gray-600 text-xs mb-3">Toasted baguette or nigella bread with melted cheese & mayo + filling</p>
                     
                     <div class="bg-gray-50 p-2 rounded mb-3">
                         <label class="text-xs font-bold text-gray-500 block mb-1">Choose Filling:</label>
@@ -539,21 +544,75 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer id="contact" class="bg-brand-dark text-white pt-12 md:pt-20 pb-8 md:pb-10 border-t-8 border-brand-red">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+            <div>
+                <h3 class="font-heading text-3xl md:text-4xl font-bold text-brand-red mb-6 md:mb-8 tracking-wide">VISIT CHICKEN MANIYA</h3>
+                <div class="mb-6">
+                    <!-- Footer Logo Placeholder -->
+                    <img src="logo.png" alt="Chicken Maniya" class="h-16 w-auto object-contain mb-4" onerror="this.style.display='none'">
+                </div>
+                <p class="mb-6 md:mb-8 text-gray-300 text-base md:text-lg leading-relaxed">We use only the freshest ingredients and our secret blend of herbs and spices.</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-gray-800 p-3 rounded-full mr-4 text-brand-red shrink-0">
+                            <i class="fas fa-map-marker-alt text-lg md:text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-1 text-sm md:text-base">Address</h4>
+                            <p class="text-gray-400 text-sm md:text-base">843 Garratt Lane, London, SW17 0PG</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-gray-800 p-3 rounded-full mr-4 text-brand-red shrink-0">
+                            <i class="fas fa-phone text-lg md:text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-1 text-sm md:text-base">Phone</h4>
+                            <p class="text-gray-400 text-sm md:text-base"><a href="tel:02012345678" class="hover:text-white transition">020 1234 5678</a></p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-gray-800 p-3 rounded-full mr-4 text-brand-red shrink-0">
+                            <i class="fas fa-clock text-lg md:text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-1 text-sm md:text-base">Opening Hours</h4>
+                            <p class="text-gray-400 text-sm md:text-base">Mon - Sun: 11:00 AM - 11:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="h-64 md:h-80 bg-gray-700 rounded-xl overflow-hidden relative shadow-2xl border-4 border-gray-600">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.99347892345!2d-0.18742888423184!3d51.44192697962454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760f64c6367331%3A0x1b4b1a4a1a4a1a4a!2s843%20Garratt%20Ln%2C%20London%20SW17%200PG%2C%20UK!5e0!3m2!1sen!2suk!4v1620000000000!5m2!1sen!2suk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm text-center md:text-left">
+            <p>&copy; 2026 Chicken Maniya. All Rights Reserved.</p>
+            <div class="mt-4 md:mt-0 space-x-6">
+                <a href="#" class="hover:text-brand-red transition"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="#" class="hover:text-brand-red transition"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" class="hover:text-brand-red transition"><i class="fab fa-twitter fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
     <script>
         // --- Shopping Cart Logic ---
         let cart = [];
 
         function addToCart(name, price, variant = null) {
             const finalName = variant ? `${name} (${variant})` : name;
-            
-            // Check if item exists
             const existing = cart.find(item => item.name === finalName);
             if (existing) {
                 existing.qty++;
             } else {
                 cart.push({ name: finalName, price: price, qty: 1 });
             }
-            
             updateCartUI();
             showStickyCart();
         }

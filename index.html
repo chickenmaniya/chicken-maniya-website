@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -111,14 +111,13 @@
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center">
                     <a href="#" class="flex items-center gap-3">
-                        <!-- LOGO UPDATE: This image tag looks for 'logo.png' -->
-                        <!-- If logo fails to load, it falls back to text -->
-                        <img src="logo.png" alt="Chicken Maniya" class="h-12 md:h-16 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <!-- Logo Image -->
+                        <img src="logo.png" alt="Chicken Maniya Logo" class="h-10 md:h-14 w-auto object-contain">
                         
-                        <!-- Fallback Text Logo (Hidden if image loads) -->
-                        <div class="hidden flex-col leading-none justify-center" style="display: none;">
-                            <span class="font-heading text-white text-sm tracking-[0.3em] uppercase opacity-90">Chicken</span>
-                            <span class="font-heading text-brand-red text-3xl font-bold uppercase -mt-1 tracking-wider">Maniya</span>
+                        <!-- Text Logo (Visible alongside image) -->
+                        <div class="flex flex-col leading-none justify-center">
+                            <span class="font-heading text-white text-xs md:text-sm tracking-[0.3em] uppercase opacity-90">Chicken</span>
+                            <span class="font-heading text-brand-red text-2xl md:text-3xl font-bold uppercase -mt-1 tracking-wider">Maniya</span>
                         </div>
                     </a>
                 </div>
@@ -245,7 +244,7 @@
                 <div class="bg-white p-5 md:p-8 rounded-xl shadow-sm border border-brand-red/20 relative overflow-hidden">
                     <div class="absolute top-0 right-0 bg-brand-yellow px-3 py-1 font-bold text-xs uppercase shadow">Best Seller</div>
                     <h3 class="font-heading text-3xl text-brand-dark mb-2 font-bold">ROSCOES</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Fried chicken (orig/spicy) + 4 regular fries & a bottled drink</p>
+                    <p class="text-gray-600 mb-4 text-sm">Chicken (orig/spicy) + 4 regular fries & a bottled drink</p>
                     <div class="flex gap-2">
                         <button onclick="addToCart('Roscoes Bucket (8pcs)', 15.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
                             <span class="block font-heading text-2xl text-brand-red font-bold">8pcs</span>
@@ -304,7 +303,7 @@
                 <!-- Variety Bucket -->
                 <div class="bg-white p-5 md:p-8 rounded-xl shadow-sm border border-gray-200">
                     <h3 class="font-heading text-2xl text-brand-dark mb-2 font-bold">VARIETY</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Fried chicken (orig/spicy) + 6 wings, 4 strips, 1 bites, 2 sides, 4 fries, drink</p>
+                    <p class="text-gray-600 mb-4 text-sm">Chicken + 6 wings, 4 strips, 1 bites, 2 sides, 4 fries, drink</p>
                     <div class="grid grid-cols-3 gap-2">
                         <button onclick="addToCart('Variety Bucket (4pcs)', 17.99)" class="bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center">
                             <div class="text-brand-red font-heading font-bold text-xl">4pcs</div>
@@ -759,5 +758,4 @@
     </script>
 </body>
 </html>
-
 

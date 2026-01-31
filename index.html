@@ -7,6 +7,49 @@
     <title>Chicken Maniya | The Best Fried Chicken in Town</title>
     <link rel="icon" type="image/png" href="logo.png">
     
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FastFoodRestaurant",
+      "name": "Chicken Maniya",
+      "image": "https://chickenmaniya.com/images/roscoes-bucket.png",
+      "url": "https://chickenmaniya.com",
+      "telephone": "+442046258549", 
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "843 Garratt Lane",
+        "addressLocality": "London",
+        "postalCode": "SW17 0PG",
+        "addressCountry": "UK"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.4348,
+        "longitude": -0.1867
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "23:00"
+      },
+      "menu": "https://chickenmaniya.com/#menu",
+      "servesCuisine": "Fried Chicken",
+      "priceRange": "£"
+    }
+    </script>
+
+    <meta property="og:title" content="Chicken Maniya | The Best Fried Chicken in Town">
+    <meta property="og:description" content="Craving crispy fried chicken? Order our legendary burgers, buckets, and wraps now. 843 Garratt Lane, London.">
+    <meta property="og:image" content="https://chickenmaniya.com/images/roscoes-bucket.png">
+    <meta property="og:url" content="https://chickenmaniya.com">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chicken Maniya | The Best Fried Chicken in Town">
+    <meta name="twitter:description" content="Succulent fried chicken & flame-grilled burgers in London.">
+    <meta name="twitter:image" content="https://chickenmaniya.com/images/roscoes-bucket.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -99,6 +142,25 @@
     </style>
 </head>
 <body class="font-body text-gray-800 bg-brand-gray relative pb-24">
+
+    <div id="promo-banner" class="bg-brand-yellow text-brand-dark px-4 py-3 text-center relative z-50 hidden border-b-2 border-brand-dark">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-xs md:text-sm font-bold uppercase tracking-wide leading-none">
+            <span class="flex-1">
+                🎉 Grand Opening! Mention 
+                <span class="bg-brand-dark text-brand-yellow px-2 py-1 rounded mx-1 select-all cursor-pointer">MANIYA10</span> 
+                for 10% off!
+            </span>
+            <button onclick="document.getElementById('promo-banner').classList.add('hidden'); localStorage.setItem('promoClosed', 'true');" class="ml-4 hover:opacity-75 p-1" aria-label="Close Offer">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+        </div>
+        <script>
+            // Automatically show banner if user hasn't closed it yet
+            if (!localStorage.getItem('promoClosed')) {
+                document.getElementById('promo-banner').classList.remove('hidden');
+            }
+        </script>
+    </div>
 
     <nav class="bg-brand-dark text-white sticky top-0 z-40 shadow-xl border-b-4 border-brand-red">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

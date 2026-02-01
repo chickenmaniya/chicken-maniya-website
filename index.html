@@ -21,7 +21,8 @@
                             red: '#D92626',
                             dark: '#1a1a1a',
                             yellow: '#fbbf24',
-                            gray: '#f9f9f9'
+                            gray: '#f9f9f9',
+                            green: '#16a34a'
                         }
                     },
                     fontFamily: {
@@ -85,6 +86,14 @@
         }
         .add-btn:active { transform: scale(0.95); }
 
+        /* Button Feedback State */
+        .btn-added {
+            background-color: #16a34a !important; /* brand-green */
+            color: white !important;
+            border-color: #16a34a !important;
+            transform: scale(1.05);
+        }
+
         .modal-overlay {
             background-color: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(4px);
@@ -105,6 +114,21 @@
         /* Utility for safe area padding on mobile */
         .safe-area-pb {
             padding-bottom: env(safe-area-inset-bottom, 1rem);
+        }
+
+        /* Back to top button */
+        #back-to-top {
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        #back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        #back-to-top.hidden-btn {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
         }
     </style>
 </head>
@@ -249,11 +273,11 @@
                             <h3 class="font-heading text-xl md:text-3xl text-brand-dark mb-1 md:mb-2 font-bold">ROSCOES</h3>
                             <p class="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm">Chicken (orig/spicy) + 4 regular fries & a bottled drink</p>
                             <div class="flex gap-2">
-                                <button onclick="addToCart('Roscoes Bucket (8pcs)', 15.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
+                                <button onclick="addToCart(this, 'Roscoes Bucket (8pcs)', 15.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
                                     <span class="block font-heading text-lg md:text-2xl text-brand-red font-bold">8pcs</span>
                                     <span class="font-bold text-xs md:text-base">£15.99</span>
                                 </button>
-                                <button onclick="addToCart('Roscoes Bucket (12pcs)', 19.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
+                                <button onclick="addToCart(this, 'Roscoes Bucket (12pcs)', 19.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
                                     <span class="block font-heading text-lg md:text-2xl text-brand-red font-bold">12pcs</span>
                                     <span class="font-bold text-xs md:text-base">£19.99</span>
                                 </button>
@@ -270,11 +294,11 @@
                             <h3 class="font-heading text-xl md:text-3xl text-brand-dark mb-1 md:mb-2 font-bold">BONELESS</h3>
                             <p class="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm">Strips (orig/spicy) + 2 sides, 4 regular fries & a bottled drink</p>
                             <div class="flex gap-2">
-                                <button onclick="addToCart('Boneless Bucket (8pcs)', 15.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
+                                <button onclick="addToCart(this, 'Boneless Bucket (8pcs)', 15.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
                                     <span class="block font-heading text-lg md:text-2xl text-brand-red font-bold">8pcs</span>
                                     <span class="font-bold text-xs md:text-base">£15.99</span>
                                 </button>
-                                <button onclick="addToCart('Boneless Bucket (12pcs)', 19.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
+                                <button onclick="addToCart(this, 'Boneless Bucket (12pcs)', 19.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
                                     <span class="block font-heading text-lg md:text-2xl text-brand-red font-bold">12pcs</span>
                                     <span class="font-bold text-xs md:text-base">£19.99</span>
                                 </button>
@@ -290,15 +314,15 @@
                         <h3 class="font-heading text-lg md:text-2xl text-brand-dark mb-1 md:mb-2 font-bold">CLASSIC</h3>
                         <p class="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm">Fried chicken (orig/spicy) + regular fries</p>
                         <div class="grid grid-cols-3 gap-2">
-                            <button onclick="addToCart('Classic Bucket (6pcs)', 12.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
+                            <button onclick="addToCart(this, 'Classic Bucket (6pcs)', 12.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
                                 <div class="text-brand-red font-heading font-bold text-sm md:text-xl">6pcs</div>
                                 <div class="font-bold text-[10px] md:text-sm">£12.99</div>
                             </button>
-                            <button onclick="addToCart('Classic Bucket (10pcs)', 18.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
+                            <button onclick="addToCart(this, 'Classic Bucket (10pcs)', 18.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
                                 <div class="text-brand-red font-heading font-bold text-sm md:text-xl">10pcs</div>
                                 <div class="font-bold text-[10px] md:text-sm">£18.99</div>
                             </button>
-                            <button onclick="addToCart('Classic Bucket (14pcs)', 18.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
+                            <button onclick="addToCart(this, 'Classic Bucket (14pcs)', 18.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
                                 <div class="text-brand-red font-heading font-bold text-sm md:text-xl">14pcs</div>
                                 <div class="font-bold text-[10px] md:text-sm">£18.99</div>
                             </button>
@@ -313,15 +337,15 @@
                         <h3 class="font-heading text-lg md:text-2xl text-brand-dark mb-1 md:mb-2 font-bold">VARIETY</h3>
                         <p class="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm">Chicken + 6 wings, 4 strips, 1 bites, 2 sides, 4 fries, drink</p>
                         <div class="grid grid-cols-3 gap-2">
-                            <button onclick="addToCart('Variety Bucket (4pcs)', 17.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
+                            <button onclick="addToCart(this, 'Variety Bucket (4pcs)', 17.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
                                 <div class="text-brand-red font-heading font-bold text-sm md:text-xl">4pcs</div>
                                 <div class="font-bold text-[10px] md:text-sm">£17.99</div>
                             </button>
-                            <button onclick="addToCart('Variety Bucket (8pcs)', 19.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
+                            <button onclick="addToCart(this, 'Variety Bucket (8pcs)', 19.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
                                 <div class="text-brand-red font-heading font-bold text-sm md:text-xl">8pcs</div>
                                 <div class="font-bold text-[10px] md:text-sm">£19.99</div>
                             </button>
-                            <button onclick="addToCart('Variety Bucket (12pcs)', 22.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
+                            <button onclick="addToCart(this, 'Variety Bucket (12pcs)', 22.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
                                 <div class="text-brand-red font-heading font-bold text-sm md:text-xl">12pcs</div>
                                 <div class="font-bold text-[10px] md:text-sm">£22.99</div>
                             </button>
@@ -360,7 +384,7 @@
                         </div>
                         <div class="flex justify-between items-center mt-auto pt-2">
                             <span class="font-heading text-lg md:text-2xl font-bold text-brand-dark">£6.29</span>
-                            <button onclick="addToCart('Smoky BBQ Burger', 6.29)" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
+                            <button onclick="addToCart(this, 'Smoky BBQ Burger', 6.29)" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
                         </div>
                     </div>
                 </div>
@@ -374,7 +398,7 @@
                         </div>
                         <div class="flex justify-between items-center mt-auto pt-2">
                             <span class="font-heading text-lg md:text-2xl font-bold text-brand-dark">£6.59</span>
-                            <button onclick="addToCart('Smoky BBQ Wrap', 6.59)" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
+                            <button onclick="addToCart(this, 'Smoky BBQ Wrap', 6.59)" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
                         </div>
                     </div>
                 </div>
@@ -388,14 +412,14 @@
                             <div class="bg-gray-50 p-1 md:p-2 rounded mb-2">
                                 <select id="tortilla-fill" class="w-full p-1 text-xs border rounded bg-white focus:border-brand-red outline-none">
                                     <option value="Original Chicken">Original Chicken</option>
-                                    <option value="Spicy Chicken">Spicy Chicken</option>
-                                    <option value="Veggie">Veggie</option>
+                                    <option value="Spicy Chicken">Spicy Chicken 🌶️</option>
+                                    <option value="Veggie">Veggie 🥬</option>
                                 </select>
                             </div>
                         </div>
                         <div class="flex justify-between items-center mt-auto">
                             <span class="font-heading text-lg md:text-2xl font-bold text-brand-dark">£5.99</span>
-                            <button onclick="addWithOption('Tortilla Wrap', 5.99, 'tortilla-fill')" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
+                            <button onclick="addWithOption(this, 'Tortilla Wrap', 5.99, 'tortilla-fill')" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
                         </div>
                     </div>
                 </div>
@@ -410,8 +434,8 @@
                             <div class="bg-gray-50 p-1 md:p-2 rounded mb-2">
                                 <select id="panini-fill" class="w-full p-1 text-xs border rounded bg-white focus:border-brand-red outline-none">
                                     <option value="Tuna">Tuna</option>
-                                    <option value="Cheese & Tomato">Cheese</option>
-                                    <option value="Veggie">Veggie</option>
+                                    <option value="Cheese & Tomato">Cheese & Tomato</option>
+                                    <option value="Veggie">Veggie 🥬</option>
                                 </select>
                             </div>
                         </div>
@@ -419,13 +443,13 @@
                         <div class="space-y-1 mt-auto">
                             <div class="flex justify-between items-center border-b border-dashed border-gray-200 pb-1">
                                 <span class="font-bold text-xs text-gray-500">Plain</span>
-                                <button onclick="addWithOption('Panini (Plain)', 6.79, 'panini-fill')" class="add-btn text-[10px] py-0.5 px-2">
+                                <button onclick="addWithOption(this, 'Panini (Plain)', 6.79, 'panini-fill')" class="add-btn text-[10px] py-0.5 px-2">
                                     £6.79 +
                                 </button>
                             </div>
                             <div class="flex justify-between items-center">
                                 <span class="font-bold text-xs text-gray-500">Nigella</span>
-                                <button onclick="addWithOption('Panini (Nigella)', 7.49, 'panini-fill')" class="add-btn text-[10px] py-0.5 px-2">
+                                <button onclick="addWithOption(this, 'Panini (Nigella)', 7.49, 'panini-fill')" class="add-btn text-[10px] py-0.5 px-2">
                                     £7.49 +
                                 </button>
                             </div>
@@ -479,6 +503,11 @@
             View Order <span id="sticky-count" class="bg-white text-brand-red text-xs w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center">0</span>
         </button>
     </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-24 right-4 bg-brand-dark text-white p-3 rounded-full shadow-lg z-40 hidden-btn hover:bg-brand-red hover:scale-110 border-2 border-white">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Cart Modal Panel -->
     <div id="cart-modal" class="fixed inset-0 z-50 hidden">
@@ -619,20 +648,20 @@
         const menuData = {
             burgers: [
                 {name: "Fish Burger", image: "images/fish-burger.webp", desc: "Fish burger served with cheese, lettuce & mayo", price: 3.99},
-                {name: "Veggie Burger", image: "images/veggie-burger.webp", desc: "Veggie burger served with lettuce & mayo", price: 3.99},
+                {name: "Veggie Burger", image: "images/veggie-burger.webp", desc: "Veggie burger served with lettuce & mayo", price: 3.99, veggie: true},
                 {name: "Steak Burger", image: "images/steak-burger.webp", desc: "Chicken steak burger served with lettuce & mayo", price: 3.99},
                 {name: "Classic Burger", image: "images/classic-burger.webp", desc: "Breast fillet in original or spicy coating with lettuce & mayo", price: 5.99},
                 {name: "Supreme Burger", image: "images/supreme-burger.webp", desc: "Breast fillet (orig/spicy) with hash brown, cheese, lettuce, mayo & ketchup", price: 6.49},
                 {name: "Omega Burger", image: "images/omega-burger.webp", desc: "Breast fillet (orig/spicy) with 2 strips, cheese, lettuce & mayo", price: 6.99},
                 {name: "D-Decker", image: "images/d-decker.webp", desc: "2 breast fillets (orig/spicy) with 2 cheese slices, lettuce & mayo", price: 7.79},
-                {name: "Mexican Burger", image: "images/mexican-burger.webp", desc: "Spicy breast fillet with onions, tomato, tortilla chips, lettuce, cheese & salsa", price: 6.79},
+                {name: "Mexican Burger", image: "images/mexican-burger.webp", desc: "Spicy breast fillet with onions, tomato, tortilla chips, lettuce, cheese & salsa", price: 6.79, spicy: true},
                 {name: "Ringer Burger", image: "images/ringer-burger.webp", desc: "Breast fillet (orig/spicy) with cheese, lettuce & mayo topped with onion rings", price: 6.69},
             ],
             combos: [
                 { title: 'JUST CHICKEN', image: 'images/just-chicken.webp', icon: 'fa-drumstick-bite', desc: 'Tender pieces of fried chicken in original or spicy coating', items: [{label: '1 pc', price: 3.79}, {label: '2 pcs', price: 4.79}, {label: '3 pcs', price: 5.79}, {label: '4 pcs', price: 6.79}] },
                 { title: 'COMBO BOX', image: 'images/combo-box.webp', icon: 'fa-box-open', desc: 'Fried chicken (orig/spicy) + 2 spicy wings & 1 spicy strip', items: [{label: '1 pc Box', price: 4.69}, {label: '2 pcs Box', price: 5.69}, {label: '3 pcs Box', price: 6.69}, {label: '4 pcs Box', price: 7.69}] },
                 { title: 'STRIPS', image: 'images/strips.webp', icon: 'fa-bacon', desc: 'Succulent tender strips of fried chicken in original or spicy coating', items: [{label: '3 pcs', price: 4.79}, {label: '5 pcs', price: 5.79}, {label: '8 pcs', price: 7.79}] },
-                { title: 'WINGS', image: 'images/wings.webp', icon: 'fa-fire', desc: 'Crispy chicken wings in spicy coating', items: [{label: '3 pcs', price: 3.79}, {label: '5 pcs', price: 4.79}, {label: '8 pcs', price: 5.79}, {label: '12 pcs', price: 6.79}] },
+                { title: 'WINGS', image: 'images/wings.webp', icon: 'fa-fire', desc: 'Crispy chicken wings in spicy coating', items: [{label: '3 pcs', price: 3.79}, {label: '5 pcs', price: 4.79}, {label: '8 pcs', price: 5.79}, {label: '12 pcs', price: 6.79}], spicy: true },
                 { title: 'BITES', image: 'images/bites.webp', icon: 'fa-bowl-food', desc: 'Tasty bite-size pieces of fried chicken breast in original coating', items: [{label: '12 pcs', price: 4.79}, {label: '20 pcs', price: 5.79}] },
                 { title: 'NUGGETS', image: 'images/nuggets.webp', icon: 'fa-utensils', desc: 'Crispy succulent tender chicken pieces', items: [{label: '4 pcs', price: 3.49}, {label: '8 pcs', price: 4.49}, {label: '12 pcs', price: 5.49}] }
             ],
@@ -647,27 +676,31 @@
             const container = document.getElementById('burger-grid');
             let html = '';
             
-            // Standard Burgers: Optimized for mobile using flex-row (list view) vs flex-col (card view)
-            html += menuData.burgers.map(b => `
+            html += menuData.burgers.map(b => {
+                let indicators = '';
+                if(b.spicy) indicators += ' <span title="Spicy">🌶️</span>';
+                if(b.veggie) indicators += ' <span title="Vegetarian">🥬</span>';
+
+                return `
                 <div class="bg-white rounded-xl shadow-sm border border-transparent hover:border-brand-red menu-card flex flex-row md:flex-col h-28 md:h-full overflow-hidden">
                     <img src="${b.image}" alt="${b.name}" class="w-28 h-full md:w-full md:h-48 object-cover bg-gray-100 shrink-0" onerror="this.src='https://placehold.co/600x400/D92626/white?text=${b.name.replace(/\s+/g, '+')}'">
                     <div class="p-3 md:p-6 flex flex-col flex-1 justify-between">
                         <div>
                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-1">
-                                <h3 class="font-heading text-lg md:text-2xl font-bold text-brand-dark leading-none">${b.name}</h3>
+                                <h3 class="font-heading text-lg md:text-2xl font-bold text-brand-dark leading-none">${b.name}${indicators}</h3>
                                 <span class="hidden md:block font-heading text-xl text-brand-red font-bold">£${b.price}</span>
                             </div>
                             <p class="text-gray-500 text-[10px] md:text-sm md:mb-4 line-clamp-2 md:line-clamp-none">${b.desc}</p>
                         </div>
                         <div class="flex justify-between items-center mt-auto md:block">
                             <span class="md:hidden font-heading text-lg font-bold text-brand-red">£${b.price}</span>
-                            <button onclick="addToCart('${b.name}', ${b.price})" class="add-btn text-xs py-1 px-3 md:w-full md:flex md:items-center md:justify-center md:gap-2 md:py-2 md:text-sm">
+                            <button onclick="addToCart(this, '${b.name}', ${b.price})" class="add-btn text-xs py-1 px-3 md:w-full md:flex md:items-center md:justify-center md:gap-2 md:py-2 md:text-sm">
                                 <i class="fas fa-plus"></i> <span class="hidden md:inline">Add to Order</span> <span class="md:hidden">Add</span>
                             </button>
                         </div>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
 
             // Special Cheese Burger Card
             html += `
@@ -679,10 +712,10 @@
                             <p class="text-gray-500 text-[10px] md:text-sm mt-0 md:mt-1 mb-2 md:mb-2 line-clamp-2 md:line-clamp-none">Succulent beef burger flame grilled loaded with lettuce & cheese</p>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-auto">
-                            <button onclick="addToCart('Cheese Burger (1/4lb)', 5.49)" class="add-btn text-[10px] md:text-xs py-1">
+                            <button onclick="addToCart(this, 'Cheese Burger (1/4lb)', 5.49)" class="add-btn text-[10px] md:text-xs py-1">
                                 1/4lb £5.49 +
                             </button>
-                            <button onclick="addToCart('Cheese Burger (1/2lb)', 6.99)" class="add-btn text-[10px] md:text-xs py-1">
+                            <button onclick="addToCart(this, 'Cheese Burger (1/2lb)', 6.99)" class="add-btn text-[10px] md:text-xs py-1">
                                 1/2lb £6.99 +
                             </button>
                         </div>
@@ -695,13 +728,16 @@
 
         function renderCombos(dataArray, containerId) {
             const container = document.getElementById(containerId);
-            const html = dataArray.map(group => `
+            const html = dataArray.map(group => {
+                let indicators = '';
+                if(group.spicy) indicators += ' <span title="Spicy">🌶️</span>';
+                
+                return `
                 <div class="bg-white rounded-xl shadow-md border border-gray-100 flex flex-col h-full menu-card overflow-hidden">
-                    <!-- Keep combos vertical as they have many options, but reduce padding/size on mobile -->
                     <div class="flex flex-row md:flex-col h-24 md:h-auto items-center md:items-stretch">
                          <img src="${group.image}" alt="${group.title}" class="w-28 h-24 md:w-full md:h-40 object-cover bg-gray-100 shrink-0" onerror="this.src='https://placehold.co/600x400/D92626/white?text=${group.title.replace(/\s+/g, '+')}'">
                          <div class="p-3 md:p-5 flex-1">
-                            <h3 class="font-heading text-lg md:text-xl font-bold text-brand-dark leading-none mb-1">${group.title}</h3>
+                            <h3 class="font-heading text-lg md:text-xl font-bold text-brand-dark leading-none mb-1">${group.title}${indicators}</h3>
                             <p class="text-gray-500 text-[10px] md:text-xs italic line-clamp-2 md:line-clamp-none md:mb-4">${group.desc}</p>
                          </div>
                     </div>
@@ -710,14 +746,14 @@
                         ${group.items.map(item => `
                         <div class="flex justify-between items-center p-1 md:p-2 rounded border border-dashed border-gray-200">
                             <span class="font-bold text-gray-700 text-xs md:text-sm">${item.label}</span>
-                            <button onclick="addToCart('${group.title} (${item.label})', ${item.price})" class="add-btn text-[10px] md:text-xs py-0.5 px-2">
+                            <button onclick="addToCart(this, '${group.title} (${item.label})', ${item.price})" class="add-btn text-[10px] md:text-xs py-0.5 px-2">
                                 £${item.price} +
                             </button>
                         </div>
                         `).join('')}
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
             
             if(container.innerHTML.trim() === "") {
                 container.innerHTML = html;
@@ -746,7 +782,7 @@
             localStorage.setItem('chickenCart', JSON.stringify(cart));
         }
 
-        function addToCart(name, price, variant = null) {
+        function addToCart(btnElement, name, price, variant = null) {
             const finalName = variant ? `${name} (${variant})` : name;
             const existing = cart.find(item => item.name === finalName);
             if (existing) {
@@ -758,19 +794,29 @@
             updateCartUI();
             showStickyCart();
             
+            // Visual Feedback
+            if(btnElement) {
+                const originalText = btnElement.innerHTML;
+                
+                // Add feedback style
+                btnElement.classList.add('btn-added');
+                btnElement.innerHTML = '<i class="fas fa-check"></i> Added!';
+                
+                setTimeout(() => {
+                    btnElement.classList.remove('btn-added');
+                    btnElement.innerHTML = originalText;
+                }, 1000);
+            }
+
             const sticky = document.getElementById('sticky-cart');
             sticky.classList.add('bg-gray-100');
             setTimeout(() => sticky.classList.remove('bg-gray-100'), 200);
-            
-            if(window.innerWidth > 768 && document.getElementById('cart-modal').classList.contains('hidden')) {
-                // Optional: openCart();
-            }
         }
 
-        function addWithOption(name, price, selectId) {
+        function addWithOption(btnElement, name, price, selectId) {
             const select = document.getElementById(selectId);
             const option = select.value;
-            addToCart(name, price, option);
+            addToCart(btnElement, name, price, option);
         }
 
         function removeFromCart(index) {
@@ -899,6 +945,18 @@
             
             callModal.classList.remove('hidden');
         }
+
+        // Handle Scroll for Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.remove('hidden-btn');
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+                backToTopBtn.classList.add('hidden-btn');
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
             renderBurgers();

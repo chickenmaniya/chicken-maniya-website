@@ -6,69 +6,12 @@
     <meta name="description" content="Chicken Maniya - The Best Fried Chicken in Town. Order crispy burgers, buckets, and wraps online.">
     <title>Chicken Maniya | The Best Fried Chicken in Town</title>
     
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#D92626">
-    <link rel="apple-touch-icon" href="logo.png">
-    
-    <link rel="icon" type="image/png" href="logo.png">
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E2T4Y6PLR1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-E2T4Y6PLR1');
-    </script>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FastFoodRestaurant",
-      "name": "Chicken Maniya",
-      "image": "https://chickenmaniya.com/images/roscoes-bucket.webp",
-      "url": "https://chickenmaniya.com",
-      "telephone": "+442046258549", 
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "843 Garratt Lane",
-        "addressLocality": "London",
-        "postalCode": "SW17 0PG",
-        "addressCountry": "UK"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 51.4348,
-        "longitude": -0.1867
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "11:00",
-        "closes": "23:00"
-      },
-      "menu": "https://chickenmaniya.com/#menu",
-      "servesCuisine": "Fried Chicken",
-      "priceRange": "£"
-    }
-    </script>
-
-    <meta property="og:title" content="Chicken Maniya | The Best Fried Chicken in Town">
-    <meta property="og:description" content="Craving crispy fried chicken? Order our legendary burgers, buckets, and wraps now. 843 Garratt Lane, London.">
-    <meta property="og:image" content="https://chickenmaniya.com/images/roscoes-bucket.webp">
-    <meta property="og:url" content="https://chickenmaniya.com">
-    <meta property="og:type" content="website">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Chicken Maniya | The Best Fried Chicken in Town">
-    <meta name="twitter:description" content="Succulent fried chicken & flame-grilled burgers in London.">
-    <meta name="twitter:image" content="https://chickenmaniya.com/images/roscoes-bucket.webp">
-
+    <!-- External Assets -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -89,8 +32,9 @@
             }
         }
     </script>
+
     <style>
-        html { scroll-padding-top: 6rem; }
+        html { scroll-padding-top: 8rem; }
         
         /* Smooth fade in animation */
         @keyframes fadeInUp {
@@ -153,10 +97,20 @@
         #cart-items::-webkit-scrollbar-track { background: #f1f1f1; }
         #cart-items::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
         #cart-items::-webkit-scrollbar-thumb:hover { background: #999; }
+        
+        /* Hide scrollbar for category nav but keep functionality */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Utility for safe area padding on mobile */
+        .safe-area-pb {
+            padding-bottom: env(safe-area-inset-bottom, 1rem);
+        }
     </style>
 </head>
 <body class="font-body text-gray-800 bg-brand-gray relative pb-24">
 
+    <!-- Promo Banner -->
     <div id="promo-banner" class="bg-brand-yellow text-brand-dark px-4 py-3 text-center relative z-50 hidden border-b-2 border-brand-dark">
         <div class="max-w-7xl mx-auto flex justify-between items-center text-xs md:text-sm font-bold uppercase tracking-wide leading-none">
             <span class="flex-1">
@@ -169,22 +123,22 @@
             </button>
         </div>
         <script>
-            // Automatically show banner if user hasn't closed it yet
             if (!localStorage.getItem('promoClosed')) {
                 document.getElementById('promo-banner').classList.remove('hidden');
             }
         </script>
     </div>
 
+    <!-- Navigation -->
     <nav class="bg-brand-dark text-white sticky top-0 z-40 shadow-xl border-b-4 border-brand-red">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
+            <div class="flex items-center justify-between h-16 md:h-20">
                 <div class="flex items-center">
                     <a href="#" class="flex items-center gap-3">
-                        <img src="logo.png" alt="Chicken Maniya Logo" class="h-10 md:h-14 w-auto object-contain" onerror="this.style.display='none'">
+                        <div class="h-8 w-8 md:h-10 md:w-10 bg-brand-red rounded-full flex items-center justify-center text-white font-heading font-bold text-lg md:text-xl border-2 border-white">CM</div>
                         <div class="flex flex-col leading-none justify-center">
-                            <span class="font-heading text-white text-xs md:text-sm tracking-[0.3em] uppercase opacity-90">Chicken</span>
-                            <span class="font-heading text-brand-red text-2xl md:text-3xl font-bold uppercase -mt-1 tracking-wider">Maniya</span>
+                            <span class="font-heading text-white text-[10px] md:text-sm tracking-[0.3em] uppercase opacity-90">Chicken</span>
+                            <span class="font-heading text-brand-red text-xl md:text-3xl font-bold uppercase -mt-0.5 tracking-wider">Maniya</span>
                         </div>
                     </a>
                 </div>
@@ -192,7 +146,8 @@
                     <div class="ml-10 flex items-center space-x-8">
                         <a href="#menu" class="hover:text-brand-red px-2 py-2 rounded-md text-lg font-medium transition duration-300">Burgers</a>
                         <a href="#buckets" class="hover:text-brand-red px-2 py-2 rounded-md text-lg font-medium transition duration-300">Buckets</a>
-                        <a href="menu.pdf" target="_blank" class="text-brand-yellow border border-brand-yellow hover:bg-brand-yellow hover:text-brand-dark px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wide transition duration-300 flex items-center gap-1">
+                        <a href="#combos" class="hover:text-brand-red px-2 py-2 rounded-md text-lg font-medium transition duration-300">Combos</a>
+                        <a href="#" onclick="alert('Menu PDF download simulation')" class="text-brand-yellow border border-brand-yellow hover:bg-brand-yellow hover:text-brand-dark px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wide transition duration-300 flex items-center gap-1">
                             <i class="fas fa-file-pdf"></i> Menu
                         </a>
                     </div>
@@ -207,54 +162,48 @@
                         <i class="fas fa-shopping-basket"></i>
                         <span id="mobile-cart-count" class="absolute -top-1 -right-1 bg-brand-yellow text-brand-dark text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
                     </button>
-                    <button id="mobile-menu-btn" class="text-white hover:text-brand-red focus:outline-none p-2" aria-label="Toggle Menu">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
                 </div>
-            </div>
-        </div>
-        
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-t border-gray-800 absolute w-full left-0 z-40 shadow-xl">
-            <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#menu" class="block px-3 py-3 rounded-md text-lg font-medium border-b border-gray-800 hover:text-brand-red hover:bg-gray-900">Burgers</a>
-                <a href="#buckets" class="block px-3 py-3 rounded-md text-lg font-medium border-b border-gray-800 hover:text-brand-red hover:bg-gray-900">Buckets</a>
-                <a href="#combos" class="block px-3 py-3 rounded-md text-lg font-medium border-b border-gray-800 hover:text-brand-red hover:bg-gray-900">Chicken & Combos</a>
-                <a href="#bbq" class="block px-3 py-3 rounded-md text-lg font-medium border-b border-gray-800 hover:text-brand-red hover:bg-gray-900">BBQ & Wraps</a>
-                <a href="menu.pdf" target="_blank" class="block px-3 py-3 rounded-md text-lg font-bold text-brand-yellow border-b border-gray-800 hover:bg-gray-900"><i class="fas fa-file-pdf mr-2"></i> Download Menu PDF</a>
             </div>
         </div>
     </nav>
 
-    <div class="hero-bg h-[60vh] md:h-[70vh] flex items-center justify-center text-center px-4 relative overflow-hidden">
+    <!-- Mobile Sticky Category Nav (HIDDEN ON DESKTOP) -->
+    <div class="md:hidden sticky top-16 z-30 bg-white shadow-md border-b border-gray-200 overflow-x-auto whitespace-nowrap py-3 px-4 no-scrollbar">
+        <div class="flex space-x-2">
+            <a href="#menu" class="bg-gray-100 text-gray-700 px-4 py-1.5 rounded-full text-sm font-bold border border-gray-200 focus:bg-brand-red focus:text-white active:bg-brand-red active:text-white transition">Burgers</a>
+            <a href="#buckets" class="bg-gray-100 text-gray-700 px-4 py-1.5 rounded-full text-sm font-bold border border-gray-200 focus:bg-brand-red focus:text-white active:bg-brand-red active:text-white transition">Buckets</a>
+            <a href="#combos" class="bg-gray-100 text-gray-700 px-4 py-1.5 rounded-full text-sm font-bold border border-gray-200 focus:bg-brand-red focus:text-white active:bg-brand-red active:text-white transition">Combos</a>
+            <a href="#bbq" class="bg-gray-100 text-gray-700 px-4 py-1.5 rounded-full text-sm font-bold border border-gray-200 focus:bg-brand-red focus:text-white active:bg-brand-red active:text-white transition">Wraps</a>
+            <a href="#reviews" class="bg-gray-100 text-gray-700 px-4 py-1.5 rounded-full text-sm font-bold border border-gray-200 focus:bg-brand-red focus:text-white active:bg-brand-red active:text-white transition">Reviews</a>
+        </div>
+    </div>
+
+    <!-- Hero Section (Reduced Height on Mobile) -->
+    <div class="hero-bg h-[40vh] md:h-[60vh] flex items-center justify-center text-center px-4 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-90"></div>
         <div class="max-w-4xl relative z-10 animate-fade-in-up w-full">
-            <span class="bg-brand-red text-white px-3 py-1 md:px-4 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase mb-4 inline-block shadow-lg">Est. 2024</span>
-            <h1 class="font-heading text-4xl sm:text-6xl md:text-8xl text-white font-bold mb-4 leading-tight drop-shadow-xl">
+            <span class="bg-brand-red text-white px-3 py-1 rounded-full text-[10px] md:text-sm font-bold tracking-widest uppercase mb-2 inline-block shadow-lg">Est. 2024</span>
+            <h1 class="font-heading text-4xl sm:text-6xl md:text-8xl text-white font-bold mb-2 leading-none drop-shadow-xl">
                 CRISPY. SPICY. <br><span class="text-brand-red">MANIYA.</span>
             </h1>
-            <p class="text-gray-200 text-lg md:text-3xl mb-8 font-light drop-shadow-md px-2">Succulent fried chicken & flame-grilled burgers.</p>
+            <p class="text-gray-200 text-sm md:text-3xl mb-4 md:mb-8 font-light drop-shadow-md px-2">Succulent fried chicken & flame-grilled burgers.</p>
             
             <div class="flex flex-col items-center gap-4 px-8 sm:px-0">
-                <div id="shop-status" class="bg-gray-800 text-white px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg flex items-center gap-2 border border-gray-600">
-                    <span class="w-3 h-3 rounded-full bg-gray-500"></span> Loading...
+                <div id="shop-status" class="bg-gray-800 text-white px-3 py-1 rounded-full text-xs md:text-sm font-bold uppercase tracking-wider shadow-lg flex items-center gap-2 border border-gray-600">
+                    <span class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-500"></span> Loading...
                 </div>
-
-                <button onclick="scrollToMenu()" class="bg-brand-red text-white font-heading text-lg md:text-2xl px-8 py-4 rounded-lg hover:bg-red-700 transition shadow-lg border-2 border-brand-red w-full sm:w-auto flex items-center justify-center gap-3 transform hover:-translate-y-1">
-                    <i class="fas fa-utensils"></i> View Menu
-                </button>
                 
                 <script>
-                    // Simple Open/Closed Logic (Mon-Sun: 11am - 11pm)
                     const now = new Date();
                     const hour = now.getHours(); // 0-23
                     const statusEl = document.getElementById('shop-status');
                     
                     if (hour >= 11 && hour < 23) {
-                        statusEl.innerHTML = '<span class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span> We are OPEN';
+                        statusEl.innerHTML = '<span class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-green-500 animate-pulse"></span> We are OPEN';
                         statusEl.classList.remove('bg-gray-800', 'border-gray-600');
                         statusEl.classList.add('bg-green-900', 'border-green-600');
                     } else {
-                        statusEl.innerHTML = '<span class="w-3 h-3 rounded-full bg-red-500"></span> We are CLOSED';
+                        statusEl.innerHTML = '<span class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-red-500"></span> We are CLOSED';
                         statusEl.classList.remove('bg-gray-800', 'border-gray-600');
                         statusEl.classList.add('bg-red-900', 'border-red-600');
                     }
@@ -263,101 +212,113 @@
         </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 py-8 md:py-16">
         
-        <div id="menu" class="mb-16 md:mb-24 scroll-mt-24">
-            <div class="flex items-center mb-8">
-                <div class="h-10 w-1.5 bg-brand-red mr-4 rounded"></div>
-                <h2 class="font-heading text-3xl md:text-5xl font-bold text-brand-dark uppercase">Burgers</h2>
+        <!-- Burgers Section -->
+        <div id="menu" class="mb-12 md:mb-24 scroll-mt-36">
+            <div class="flex items-center mb-6">
+                <div class="h-8 md:h-10 w-1.5 bg-brand-red mr-3 md:mr-4 rounded"></div>
+                <h2 class="font-heading text-2xl md:text-5xl font-bold text-brand-dark uppercase">Burgers</h2>
             </div>
 
-            <div id="burger-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                </div>
+            <div id="burger-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <!-- Javascript will populate this with COMPACT mobile cards -->
+            </div>
         </div>
 
-        <div id="buckets" class="mb-16 md:mb-24 scroll-mt-24">
-            <div class="flex items-center mb-8">
-                <div class="h-10 w-1.5 bg-brand-red mr-4 rounded"></div>
-                <h2 class="font-heading text-3xl md:text-5xl font-bold text-brand-dark uppercase">Family Buckets</h2>
+        <!-- Buckets Section -->
+        <div id="buckets" class="mb-12 md:mb-24 scroll-mt-36">
+            <div class="flex items-center mb-6">
+                <div class="h-8 md:h-10 w-1.5 bg-brand-red mr-3 md:mr-4 rounded"></div>
+                <h2 class="font-heading text-2xl md:text-5xl font-bold text-brand-dark uppercase">Family Buckets</h2>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
+                <!-- Roscoes Bucket -->
                 <div class="bg-white rounded-xl shadow-sm border border-brand-red/20 relative overflow-hidden hover:shadow-md transition">
-                    <img src="images/roscoes-bucket.webp" alt="Roscoes Bucket" class="w-full h-56 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Roscoes+Bucket'">
-                    <div class="p-5 md:p-8">
-                        <div class="absolute top-0 right-0 bg-brand-yellow px-3 py-1 font-bold text-xs uppercase shadow m-4 rounded">Best Seller</div>
-                        <h3 class="font-heading text-3xl text-brand-dark mb-2 font-bold">ROSCOES</h3>
-                        <p class="text-gray-600 mb-4 text-sm">Chicken (orig/spicy) + 4 regular fries & a bottled drink</p>
-                        <div class="flex gap-2">
-                            <button onclick="addToCart('Roscoes Bucket (8pcs)', 15.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
-                                <span class="block font-heading text-2xl text-brand-red font-bold">8pcs</span>
-                                <span class="font-bold">£15.99</span>
-                            </button>
-                            <button onclick="addToCart('Roscoes Bucket (12pcs)', 19.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
-                                <span class="block font-heading text-2xl text-brand-red font-bold">12pcs</span>
-                                <span class="font-bold">£19.99</span>
-                            </button>
+                    <div class="flex flex-col md:block">
+                        <img src="images/roscoes-bucket.webp" alt="Roscoes Bucket" class="w-full h-40 md:h-56 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Roscoes+Bucket'">
+                        <div class="p-4 md:p-8">
+                            <div class="absolute top-0 right-0 bg-brand-yellow px-2 py-1 md:px-3 font-bold text-[10px] md:text-xs uppercase shadow m-2 md:m-4 rounded">Best Seller</div>
+                            <h3 class="font-heading text-xl md:text-3xl text-brand-dark mb-1 md:mb-2 font-bold">ROSCOES</h3>
+                            <p class="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm">Chicken (orig/spicy) + 4 regular fries & a bottled drink</p>
+                            <div class="flex gap-2">
+                                <button onclick="addToCart('Roscoes Bucket (8pcs)', 15.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
+                                    <span class="block font-heading text-lg md:text-2xl text-brand-red font-bold">8pcs</span>
+                                    <span class="font-bold text-xs md:text-base">£15.99</span>
+                                </button>
+                                <button onclick="addToCart('Roscoes Bucket (12pcs)', 19.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
+                                    <span class="block font-heading text-lg md:text-2xl text-brand-red font-bold">12pcs</span>
+                                    <span class="font-bold text-xs md:text-base">£19.99</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Boneless Bucket -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition overflow-hidden">
-                    <img src="images/boneless-bucket.webp" alt="Boneless Bucket" class="w-full h-56 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Boneless+Bucket'">
-                    <div class="p-5 md:p-8">
-                        <h3 class="font-heading text-3xl text-brand-dark mb-2 font-bold">BONELESS</h3>
-                        <p class="text-gray-600 mb-4 text-sm">Strips (orig/spicy) + 2 sides, 4 regular fries & a bottled drink</p>
-                        <div class="flex gap-2">
-                            <button onclick="addToCart('Boneless Bucket (8pcs)', 15.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
-                                <span class="block font-heading text-2xl text-brand-red font-bold">8pcs</span>
-                                <span class="font-bold">£15.99</span>
-                            </button>
-                            <button onclick="addToCart('Boneless Bucket (12pcs)', 19.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
-                                <span class="block font-heading text-2xl text-brand-red font-bold">12pcs</span>
-                                <span class="font-bold">£19.99</span>
-                            </button>
+                    <div class="flex flex-col md:block">
+                        <img src="images/boneless-bucket.webp" alt="Boneless Bucket" class="w-full h-40 md:h-56 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Boneless+Bucket'">
+                        <div class="p-4 md:p-8">
+                            <h3 class="font-heading text-xl md:text-3xl text-brand-dark mb-1 md:mb-2 font-bold">BONELESS</h3>
+                            <p class="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm">Strips (orig/spicy) + 2 sides, 4 regular fries & a bottled drink</p>
+                            <div class="flex gap-2">
+                                <button onclick="addToCart('Boneless Bucket (8pcs)', 15.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
+                                    <span class="block font-heading text-lg md:text-2xl text-brand-red font-bold">8pcs</span>
+                                    <span class="font-bold text-xs md:text-base">£15.99</span>
+                                </button>
+                                <button onclick="addToCart('Boneless Bucket (12pcs)', 19.99)" class="flex-1 bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center group">
+                                    <span class="block font-heading text-lg md:text-2xl text-brand-red font-bold">12pcs</span>
+                                    <span class="font-bold text-xs md:text-base">£19.99</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Classic Bucket -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition overflow-hidden">
-                    <img src="images/classic-bucket.webp" alt="Classic Bucket" class="w-full h-48 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Classic+Bucket'">
-                    <div class="p-5 md:p-8">
-                        <h3 class="font-heading text-2xl text-brand-dark mb-2 font-bold">CLASSIC</h3>
-                        <p class="text-gray-600 mb-4 text-sm">Fried chicken (orig/spicy) + regular fries</p>
+                    <img src="images/classic-bucket.webp" alt="Classic Bucket" class="w-full h-32 md:h-48 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Classic+Bucket'">
+                    <div class="p-4 md:p-8">
+                        <h3 class="font-heading text-lg md:text-2xl text-brand-dark mb-1 md:mb-2 font-bold">CLASSIC</h3>
+                        <p class="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm">Fried chicken (orig/spicy) + regular fries</p>
                         <div class="grid grid-cols-3 gap-2">
-                            <button onclick="addToCart('Classic Bucket (6pcs)', 12.99)" class="bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
-                                <div class="text-brand-red font-heading font-bold text-xl">6pcs</div>
-                                <div class="font-bold text-sm">£12.99</div>
+                            <button onclick="addToCart('Classic Bucket (6pcs)', 12.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
+                                <div class="text-brand-red font-heading font-bold text-sm md:text-xl">6pcs</div>
+                                <div class="font-bold text-[10px] md:text-sm">£12.99</div>
                             </button>
-                            <button onclick="addToCart('Classic Bucket (10pcs)', 18.99)" class="bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
-                                <div class="text-brand-red font-heading font-bold text-xl">10pcs</div>
-                                <div class="font-bold text-sm">£18.99</div>
+                            <button onclick="addToCart('Classic Bucket (10pcs)', 18.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
+                                <div class="text-brand-red font-heading font-bold text-sm md:text-xl">10pcs</div>
+                                <div class="font-bold text-[10px] md:text-sm">£18.99</div>
                             </button>
-                            <button onclick="addToCart('Classic Bucket (14pcs)', 18.99)" class="bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
-                                <div class="text-brand-red font-heading font-bold text-xl">14pcs</div>
-                                <div class="font-bold text-sm">£18.99</div>
+                            <button onclick="addToCart('Classic Bucket (14pcs)', 18.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
+                                <div class="text-brand-red font-heading font-bold text-sm md:text-xl">14pcs</div>
+                                <div class="font-bold text-[10px] md:text-sm">£18.99</div>
                             </button>
                         </div>
                     </div>
                 </div>
 
+                <!-- Variety Bucket -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition overflow-hidden">
-                    <img src="images/variety-bucket.webp" alt="Variety Bucket" class="w-full h-48 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Variety+Bucket'">
-                    <div class="p-5 md:p-8">
-                        <h3 class="font-heading text-2xl text-brand-dark mb-2 font-bold">VARIETY</h3>
-                        <p class="text-gray-600 mb-4 text-sm">Chicken + 6 wings, 4 strips, 1 bites, 2 sides, 4 fries, drink</p>
+                    <img src="images/variety-bucket.webp" alt="Variety Bucket" class="w-full h-32 md:h-48 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Variety+Bucket'">
+                    <div class="p-4 md:p-8">
+                        <h3 class="font-heading text-lg md:text-2xl text-brand-dark mb-1 md:mb-2 font-bold">VARIETY</h3>
+                        <p class="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm">Chicken + 6 wings, 4 strips, 1 bites, 2 sides, 4 fries, drink</p>
                         <div class="grid grid-cols-3 gap-2">
-                            <button onclick="addToCart('Variety Bucket (4pcs)', 17.99)" class="bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
-                                <div class="text-brand-red font-heading font-bold text-xl">4pcs</div>
-                                <div class="font-bold text-sm">£17.99</div>
+                            <button onclick="addToCart('Variety Bucket (4pcs)', 17.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
+                                <div class="text-brand-red font-heading font-bold text-sm md:text-xl">4pcs</div>
+                                <div class="font-bold text-[10px] md:text-sm">£17.99</div>
                             </button>
-                            <button onclick="addToCart('Variety Bucket (8pcs)', 19.99)" class="bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
-                                <div class="text-brand-red font-heading font-bold text-xl">8pcs</div>
-                                <div class="font-bold text-sm">£19.99</div>
+                            <button onclick="addToCart('Variety Bucket (8pcs)', 19.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
+                                <div class="text-brand-red font-heading font-bold text-sm md:text-xl">8pcs</div>
+                                <div class="font-bold text-[10px] md:text-sm">£19.99</div>
                             </button>
-                            <button onclick="addToCart('Variety Bucket (12pcs)', 22.99)" class="bg-gray-50 p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
-                                <div class="text-brand-red font-heading font-bold text-xl">12pcs</div>
-                                <div class="font-bold text-sm">£22.99</div>
+                            <button onclick="addToCart('Variety Bucket (12pcs)', 22.99)" class="bg-gray-50 p-1 md:p-2 rounded border hover:border-brand-red transition text-center hover:bg-white">
+                                <div class="text-brand-red font-heading font-bold text-sm md:text-xl">12pcs</div>
+                                <div class="font-bold text-[10px] md:text-sm">£22.99</div>
                             </button>
                         </div>
                     </div>
@@ -365,93 +326,102 @@
             </div>
         </div>
 
-        <div id="combos" class="mb-16 md:mb-24 scroll-mt-24">
-            <div class="flex items-center mb-8">
-                <div class="h-10 w-1.5 bg-brand-red mr-4 rounded"></div>
-                <h2 class="font-heading text-3xl md:text-5xl font-bold text-brand-dark uppercase">Chicken & Combos</h2>
+        <!-- Combos Section -->
+        <div id="combos" class="mb-12 md:mb-24 scroll-mt-36">
+            <div class="flex items-center mb-6">
+                <div class="h-8 md:h-10 w-1.5 bg-brand-red mr-3 md:mr-4 rounded"></div>
+                <h2 class="font-heading text-2xl md:text-5xl font-bold text-brand-dark uppercase">Chicken & Combos</h2>
             </div>
-            <div id="combos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                </div>
+            <div id="combos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+                <!-- JS Populated -->
+            </div>
         </div>
 
-        <div id="bbq" class="mb-16 scroll-mt-24">
-            <div class="flex items-center mb-8">
-                <div class="h-10 w-1.5 bg-brand-red mr-4 rounded"></div>
-                <h2 class="font-heading text-3xl md:text-5xl font-bold text-brand-dark uppercase">BBQ & Wraps</h2>
+        <!-- BBQ & Wraps Section -->
+        <div id="bbq" class="mb-16 scroll-mt-36">
+            <div class="flex items-center mb-6">
+                <div class="h-8 md:h-10 w-1.5 bg-brand-red mr-3 md:mr-4 rounded"></div>
+                <h2 class="font-heading text-2xl md:text-5xl font-bold text-brand-dark uppercase">BBQ & Wraps</h2>
             </div>
 
-            <div id="bbq-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div id="bbq-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                 
-                <div class="bg-white rounded-xl shadow-sm border border-transparent menu-card overflow-hidden flex flex-col h-full">
-                    <img src="images/smoky-bbq-burger.webp" alt="Smoky BBQ Burger" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=BBQ+Burger'">
-                    <div class="p-5 flex flex-col flex-1">
-                        <h3 class="font-heading text-xl font-bold text-brand-red mb-1">Smoky BBQ Burger</h3>
-                        <p class="text-gray-600 text-xs mb-4 flex-1">Breast fillet covered in sticky smoky bbq sauce with lettuce & mayo</p>
-                        <div class="flex justify-between items-center mt-auto">
-                            <span class="font-heading text-2xl font-bold text-brand-dark">£6.29</span>
-                            <button onclick="addToCart('Smoky BBQ Burger', 6.29)" class="add-btn"><i class="fas fa-plus"></i> Add</button>
+                <div class="bg-white rounded-xl shadow-sm border border-transparent menu-card overflow-hidden flex flex-row md:flex-col h-28 md:h-full">
+                    <img src="images/smoky-bbq-burger.webp" alt="Smoky BBQ Burger" class="w-28 h-28 md:w-full md:h-40 object-cover bg-gray-100 shrink-0" onerror="this.src='https://placehold.co/600x400/D92626/white?text=BBQ+Burger'">
+                    <div class="p-3 md:p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-heading text-lg md:text-xl font-bold text-brand-red mb-0.5 leading-none">Smoky BBQ Burger</h3>
+                            <p class="text-gray-600 text-[10px] md:text-xs md:mb-4 line-clamp-2 md:line-clamp-none">Breast fillet covered in sticky smoky bbq sauce with lettuce & mayo</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-2">
+                            <span class="font-heading text-lg md:text-2xl font-bold text-brand-dark">£6.29</span>
+                            <button onclick="addToCart('Smoky BBQ Burger', 6.29)" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl shadow-sm border border-transparent menu-card overflow-hidden flex flex-col h-full">
-                    <img src="images/smoky-bbq-wrap.webp" alt="Smoky BBQ Wrap" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=BBQ+Wrap'">
-                    <div class="p-5 flex flex-col flex-1">
-                        <h3 class="font-heading text-xl font-bold text-brand-red mb-1">Smoky BBQ Wrap</h3>
-                        <p class="text-gray-600 text-xs mb-4 flex-1">Breast fillet pieces in sticky smoky bbq sauce with lettuce & mayo in a tortilla wrap</p>
-                        <div class="flex justify-between items-center mt-auto">
-                            <span class="font-heading text-2xl font-bold text-brand-dark">£6.59</span>
-                            <button onclick="addToCart('Smoky BBQ Wrap', 6.59)" class="add-btn"><i class="fas fa-plus"></i> Add</button>
+                <div class="bg-white rounded-xl shadow-sm border border-transparent menu-card overflow-hidden flex flex-row md:flex-col h-28 md:h-full">
+                    <img src="images/smoky-bbq-wrap.webp" alt="Smoky BBQ Wrap" class="w-28 h-28 md:w-full md:h-40 object-cover bg-gray-100 shrink-0" onerror="this.src='https://placehold.co/600x400/D92626/white?text=BBQ+Wrap'">
+                    <div class="p-3 md:p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-heading text-lg md:text-xl font-bold text-brand-red mb-0.5 leading-none">Smoky BBQ Wrap</h3>
+                            <p class="text-gray-600 text-[10px] md:text-xs md:mb-4 line-clamp-2 md:line-clamp-none">Breast fillet pieces in sticky smoky bbq sauce with lettuce & mayo in a tortilla wrap</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-2">
+                            <span class="font-heading text-lg md:text-2xl font-bold text-brand-dark">£6.59</span>
+                            <button onclick="addToCart('Smoky BBQ Wrap', 6.59)" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl shadow-sm border border-transparent menu-card overflow-hidden flex flex-col h-full">
-                    <img src="images/tortilla-wrap.webp" alt="Tortilla Wrap" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Tortilla+Wrap'">
-                    <div class="p-5 flex flex-col flex-1">
-                        <h3 class="font-heading text-xl font-bold text-brand-red mb-1">Tortilla Wrap</h3>
-                        <p class="text-gray-600 text-xs mb-3 flex-1">Toasted tortilla wrap with melted cheese & mayo + filling</p>
-                        <div class="bg-gray-50 p-2 rounded mb-3">
-                            <label class="text-xs font-bold text-gray-500 block mb-1">Choose Filling:</label>
-                            <select id="tortilla-fill" class="w-full p-2 text-sm border rounded bg-white focus:border-brand-red outline-none">
-                                <option value="Original Chicken">Original Chicken</option>
-                                <option value="Spicy Chicken">Spicy Chicken</option>
-                                <option value="Veggie">Veggie</option>
-                            </select>
+                <div class="bg-white rounded-xl shadow-sm border border-transparent menu-card overflow-hidden flex flex-row md:flex-col h-auto md:h-full">
+                    <img src="images/tortilla-wrap.webp" alt="Tortilla Wrap" class="w-28 h-full md:w-full md:h-40 object-cover bg-gray-100 shrink-0" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Tortilla+Wrap'">
+                    <div class="p-3 md:p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-heading text-lg md:text-xl font-bold text-brand-red mb-0.5 leading-none">Tortilla Wrap</h3>
+                            <p class="text-gray-600 text-[10px] md:text-xs mb-2 line-clamp-2 md:line-clamp-none">Toasted tortilla wrap with melted cheese & mayo + filling</p>
+                            <div class="bg-gray-50 p-1 md:p-2 rounded mb-2">
+                                <select id="tortilla-fill" class="w-full p-1 text-xs border rounded bg-white focus:border-brand-red outline-none">
+                                    <option value="Original Chicken">Original Chicken</option>
+                                    <option value="Spicy Chicken">Spicy Chicken</option>
+                                    <option value="Veggie">Veggie</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="flex justify-between items-center mt-auto">
-                            <span class="font-heading text-2xl font-bold text-brand-dark">£5.99</span>
-                            <button onclick="addWithOption('Tortilla Wrap', 5.99, 'tortilla-fill')" class="add-btn"><i class="fas fa-plus"></i> Add</button>
+                            <span class="font-heading text-lg md:text-2xl font-bold text-brand-dark">£5.99</span>
+                            <button onclick="addWithOption('Tortilla Wrap', 5.99, 'tortilla-fill')" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl shadow-sm border border-transparent menu-card overflow-hidden flex flex-col h-full">
-                    <img src="images/panini.webp" alt="Panini" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Panini'">
-                    <div class="p-5 flex flex-col flex-1">
-                        <h3 class="font-heading text-xl font-bold text-brand-red mb-1">Paninis</h3>
-                        <p class="text-gray-600 text-xs mb-3 flex-1">Toasted baguette or nigella bread with melted cheese & mayo + filling</p>
-                        
-                        <div class="bg-gray-50 p-2 rounded mb-3">
-                            <label class="text-xs font-bold text-gray-500 block mb-1">Choose Filling:</label>
-                            <select id="panini-fill" class="w-full p-2 text-sm border rounded bg-white focus:border-brand-red outline-none">
-                                <option value="Tuna">Tuna</option>
-                                <option value="Cheese & Tomato">Cheese & Tomato</option>
-                                <option value="Veggie">Veggie</option>
-                            </select>
+                <div class="bg-white rounded-xl shadow-sm border border-transparent menu-card overflow-hidden flex flex-row md:flex-col h-auto md:h-full">
+                    <img src="images/panini.webp" alt="Panini" class="w-28 h-full md:w-full md:h-40 object-cover bg-gray-100 shrink-0" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Panini'">
+                    <div class="p-3 md:p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-heading text-lg md:text-xl font-bold text-brand-red mb-0.5 leading-none">Paninis</h3>
+                            <p class="text-gray-600 text-[10px] md:text-xs mb-2 line-clamp-1 md:line-clamp-none">Toasted baguette or nigella bread + filling</p>
+                            
+                            <div class="bg-gray-50 p-1 md:p-2 rounded mb-2">
+                                <select id="panini-fill" class="w-full p-1 text-xs border rounded bg-white focus:border-brand-red outline-none">
+                                    <option value="Tuna">Tuna</option>
+                                    <option value="Cheese & Tomato">Cheese</option>
+                                    <option value="Veggie">Veggie</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="space-y-2 mt-auto">
-                            <div class="flex justify-between items-center border-b border-dashed border-gray-200 pb-2">
-                                <span class="font-bold text-sm">Plain Bread</span>
-                                <button onclick="addWithOption('Panini (Plain)', 6.79, 'panini-fill')" class="add-btn text-xs">
-                                    £6.79 <i class="fas fa-plus ml-1"></i>
+                        <div class="space-y-1 mt-auto">
+                            <div class="flex justify-between items-center border-b border-dashed border-gray-200 pb-1">
+                                <span class="font-bold text-xs text-gray-500">Plain</span>
+                                <button onclick="addWithOption('Panini (Plain)', 6.79, 'panini-fill')" class="add-btn text-[10px] py-0.5 px-2">
+                                    £6.79 +
                                 </button>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="font-bold text-sm">Nigella Bread</span>
-                                <button onclick="addWithOption('Panini (Nigella)', 7.49, 'panini-fill')" class="add-btn text-xs">
-                                    £7.49 <i class="fas fa-plus ml-1"></i>
+                                <span class="font-bold text-xs text-gray-500">Nigella</span>
+                                <button onclick="addWithOption('Panini (Nigella)', 7.49, 'panini-fill')" class="add-btn text-[10px] py-0.5 px-2">
+                                    £7.49 +
                                 </button>
                             </div>
                         </div>
@@ -461,10 +431,11 @@
                 </div>
         </div>
 
-        <div id="reviews" class="mb-16 scroll-mt-24">
-            <div class="flex items-center mb-8">
-                <div class="h-10 w-1.5 bg-brand-red mr-4 rounded"></div>
-                <h2 class="font-heading text-3xl md:text-5xl font-bold text-brand-dark uppercase">What Our Customers Say</h2>
+        <!-- Reviews Section -->
+        <div id="reviews" class="mb-16 scroll-mt-36">
+            <div class="flex items-center mb-6">
+                <div class="h-8 md:h-10 w-1.5 bg-brand-red mr-3 md:mr-4 rounded"></div>
+                <h2 class="font-heading text-2xl md:text-5xl font-bold text-brand-dark uppercase">What Our Customers Say</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-brand-yellow">
@@ -493,6 +464,7 @@
 
     </div>
 
+    <!-- Sticky Cart Summary (Mobile) -->
     <div id="sticky-cart" class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-3 md:p-4 shadow-2xl z-50 transform translate-y-full transition-transform duration-300 flex justify-between items-center cart-float safe-area-pb">
         <div onclick="openCart()" class="flex flex-col cursor-pointer pl-2">
             <span class="text-[10px] md:text-xs text-gray-500 uppercase font-bold">Total Order</span>
@@ -503,6 +475,7 @@
         </button>
     </div>
 
+    <!-- Cart Modal Panel -->
     <div id="cart-modal" class="fixed inset-0 z-50 hidden">
         <div class="absolute inset-0 modal-overlay" onclick="closeCart()"></div>
         <div class="absolute right-0 top-0 h-full w-full md:w-96 bg-white shadow-2xl flex flex-col transform transition-transform duration-300 translate-x-full" id="cart-panel">
@@ -512,9 +485,10 @@
             </div>
             
             <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
-                </div>
+                <!-- Items injected here -->
+            </div>
 
-            <div class="bg-white p-4 border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] shrink-0">
+            <div class="bg-white p-4 border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] shrink-0 pb-8">
                 <div class="flex justify-between items-end mb-4">
                     <span class="text-gray-600 font-bold">Total:</span>
                     <span id="cart-total" class="text-3xl font-heading text-brand-red font-bold">£0.00</span>
@@ -526,6 +500,7 @@
         </div>
     </div>
 
+    <!-- "Ready to Call" Modal -->
     <div id="call-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center px-4">
         <div class="absolute inset-0 modal-overlay" onclick="document.getElementById('call-modal').classList.add('hidden')"></div>
         <div class="bg-white rounded-xl shadow-2xl z-10 w-full max-w-md overflow-hidden relative animate-fade-in-up">
@@ -535,7 +510,8 @@
             </div>
             <div class="p-6 bg-gray-50 max-h-[50vh] overflow-y-auto border-b border-gray-200">
                 <div id="call-list" class="text-sm md:text-base font-bold text-brand-dark space-y-2 font-body">
-                    </div>
+                    <!-- Final list injected here -->
+                </div>
                 <div class="mt-4 pt-3 border-t border-gray-200 text-right">
                     <span class="text-gray-500 text-sm">Total Price:</span>
                     <div id="call-total" class="text-2xl md:text-3xl font-heading text-brand-red font-bold">£0.00</div>
@@ -553,13 +529,11 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer id="contact" class="bg-brand-dark text-white pt-12 md:pt-20 pb-8 md:pb-10 border-t-8 border-brand-red">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
             <div>
                 <h3 class="font-heading text-3xl md:text-4xl font-bold text-brand-red mb-6 md:mb-8 tracking-wide">VISIT CHICKEN MANIYA</h3>
-                <div class="mb-6">
-                     <img src="logo.png" alt="Chicken Maniya" class="h-16 w-auto object-contain mb-4" onerror="this.style.display='none'">
-                </div>
                 <p class="mb-6 md:mb-8 text-gray-300 text-base md:text-lg leading-relaxed">We use only the freshest ingredients and our secret blend of herbs and spices.</p>
                 
                 <div class="space-y-6">
@@ -654,36 +628,43 @@
             const container = document.getElementById('burger-grid');
             let html = '';
             
-            // Standard Burgers
+            // Standard Burgers: Optimized for mobile using flex-row (list view) vs flex-col (card view)
             html += menuData.burgers.map(b => `
-                <div class="bg-white rounded-xl shadow-sm border border-transparent hover:border-brand-red menu-card flex flex-col justify-between h-full overflow-hidden">
-                    <img src="${b.image}" alt="${b.name}" class="w-full h-48 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=${b.name.replace(' ', '+')}'">
-                    <div class="p-4 md:p-6 flex flex-col flex-1">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-heading text-xl md:text-2xl font-bold text-brand-dark">${b.name}</h3>
-                            <span class="font-heading text-xl text-brand-red font-bold">£${b.price}</span>
+                <div class="bg-white rounded-xl shadow-sm border border-transparent hover:border-brand-red menu-card flex flex-row md:flex-col h-28 md:h-full overflow-hidden">
+                    <img src="${b.image}" alt="${b.name}" class="w-28 h-full md:w-full md:h-48 object-cover bg-gray-100 shrink-0" onerror="this.src='https://placehold.co/600x400/D92626/white?text=${b.name.replace(/\s+/g, '+')}'">
+                    <div class="p-3 md:p-6 flex flex-col flex-1 justify-between">
+                        <div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-1">
+                                <h3 class="font-heading text-lg md:text-2xl font-bold text-brand-dark leading-none">${b.name}</h3>
+                                <span class="hidden md:block font-heading text-xl text-brand-red font-bold">£${b.price}</span>
+                            </div>
+                            <p class="text-gray-500 text-[10px] md:text-sm md:mb-4 line-clamp-2 md:line-clamp-none">${b.desc}</p>
                         </div>
-                        <p class="text-gray-500 text-xs md:text-sm mb-4 flex-1">${b.desc}</p>
-                        <button onclick="addToCart('${b.name}', ${b.price})" class="add-btn w-full flex items-center justify-center gap-2 mt-auto">
-                            <i class="fas fa-plus"></i> Add to Order
-                        </button>
+                        <div class="flex justify-between items-center mt-auto md:block">
+                            <span class="md:hidden font-heading text-lg font-bold text-brand-red">£${b.price}</span>
+                            <button onclick="addToCart('${b.name}', ${b.price})" class="add-btn text-xs py-1 px-3 md:w-full md:flex md:items-center md:justify-center md:gap-2 md:py-2 md:text-sm">
+                                <i class="fas fa-plus"></i> <span class="hidden md:inline">Add to Order</span> <span class="md:hidden">Add</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             `).join('');
 
             // Special Cheese Burger Card
             html += `
-                <div class="bg-white rounded-xl shadow-sm border border-transparent hover:border-brand-red menu-card flex flex-col justify-between overflow-hidden">
-                    <img src="images/cheese-burger.webp" alt="Cheese Burger" class="w-full h-48 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Cheese+Burger'">
-                    <div class="p-4 md:p-6 flex flex-col flex-1">
-                        <h3 class="font-heading text-xl md:text-2xl font-bold text-brand-dark">Cheese Burger</h3>
-                        <p class="text-gray-500 text-xs md:text-sm mt-1 mb-2 flex-1">Succulent beef burger flame grilled loaded with lettuce & cheese</p>
-                        <div class="grid grid-cols-2 gap-2 mt-auto">
-                            <button onclick="addToCart('Cheese Burger (1/4lb)', 5.49)" class="add-btn text-xs">
-                                1/4lb £5.49 <i class="fas fa-plus ml-1"></i>
+                <div class="bg-white rounded-xl shadow-sm border border-transparent hover:border-brand-red menu-card flex flex-row md:flex-col h-auto md:h-full overflow-hidden">
+                    <img src="images/cheese-burger.webp" alt="Cheese Burger" class="w-28 h-full md:w-full md:h-48 object-cover bg-gray-100 shrink-0" onerror="this.src='https://placehold.co/600x400/D92626/white?text=Cheese+Burger'">
+                    <div class="p-3 md:p-6 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-heading text-lg md:text-2xl font-bold text-brand-dark leading-none mb-1">Cheese Burger</h3>
+                            <p class="text-gray-500 text-[10px] md:text-sm mt-0 md:mt-1 mb-2 md:mb-2 line-clamp-2 md:line-clamp-none">Succulent beef burger flame grilled loaded with lettuce & cheese</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-auto">
+                            <button onclick="addToCart('Cheese Burger (1/4lb)', 5.49)" class="add-btn text-[10px] md:text-xs py-1">
+                                1/4lb £5.49 +
                             </button>
-                            <button onclick="addToCart('Cheese Burger (1/2lb)', 6.99)" class="add-btn text-xs">
-                                1/2lb £6.99 <i class="fas fa-plus ml-1"></i>
+                            <button onclick="addToCart('Cheese Burger (1/2lb)', 6.99)" class="add-btn text-[10px] md:text-xs py-1">
+                                1/2lb £6.99 +
                             </button>
                         </div>
                     </div>
@@ -697,27 +678,28 @@
             const container = document.getElementById(containerId);
             const html = dataArray.map(group => `
                 <div class="bg-white rounded-xl shadow-md border border-gray-100 flex flex-col h-full menu-card overflow-hidden">
-                    <img src="${group.image}" alt="${group.title}" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='https://placehold.co/600x400/D92626/white?text=${group.title.replace(' ', '+')}'">
-                    <div class="p-5 flex flex-col flex-1">
-                        <div class="flex items-center gap-2 border-b pb-2 mb-2">
-                            <h3 class="font-heading text-xl font-bold text-brand-dark">${group.title}</h3>
+                    <!-- Keep combos vertical as they have many options, but reduce padding/size on mobile -->
+                    <div class="flex flex-row md:flex-col h-24 md:h-auto items-center md:items-stretch">
+                         <img src="${group.image}" alt="${group.title}" class="w-28 h-24 md:w-full md:h-40 object-cover bg-gray-100 shrink-0" onerror="this.src='https://placehold.co/600x400/D92626/white?text=${group.title.replace(/\s+/g, '+')}'">
+                         <div class="p-3 md:p-5 flex-1">
+                            <h3 class="font-heading text-lg md:text-xl font-bold text-brand-dark leading-none mb-1">${group.title}</h3>
+                            <p class="text-gray-500 text-[10px] md:text-xs italic line-clamp-2 md:line-clamp-none md:mb-4">${group.desc}</p>
+                         </div>
+                    </div>
+                    
+                    <div class="p-2 md:p-5 pt-0 space-y-1 md:space-y-2 mt-auto border-t md:border-t-0 border-dashed border-gray-100">
+                        ${group.items.map(item => `
+                        <div class="flex justify-between items-center p-1 md:p-2 rounded border border-dashed border-gray-200">
+                            <span class="font-bold text-gray-700 text-xs md:text-sm">${item.label}</span>
+                            <button onclick="addToCart('${group.title} (${item.label})', ${item.price})" class="add-btn text-[10px] md:text-xs py-0.5 px-2">
+                                £${item.price} +
+                            </button>
                         </div>
-                        <p class="text-gray-500 text-xs italic mb-4 min-h-[2.5em]">${group.desc}</p>
-                        <div class="space-y-2 mt-auto">
-                            ${group.items.map(item => `
-                            <div class="flex justify-between items-center p-2 rounded border border-dashed border-gray-200">
-                                <span class="font-bold text-gray-700 text-sm">${item.label}</span>
-                                <button onclick="addToCart('${group.title} (${item.label})', ${item.price})" class="add-btn text-xs">
-                                    £${item.price} <i class="fas fa-plus ml-1"></i>
-                                </button>
-                            </div>
-                            `).join('')}
-                        </div>
+                        `).join('')}
                     </div>
                 </div>
             `).join('');
             
-            // Append to existing content (for BBQ section) or set new (for combos)
             if(container.innerHTML.trim() === "") {
                 container.innerHTML = html;
             } else {
@@ -728,7 +710,6 @@
         // --- SHOPPING CART LOGIC ---
         let cart = [];
 
-        // Load cart from LocalStorage on boot
         function initCart() {
             const savedCart = localStorage.getItem('chickenCart');
             if (savedCart) {
@@ -758,10 +739,13 @@
             updateCartUI();
             showStickyCart();
             
-            // Visual feedback
             const sticky = document.getElementById('sticky-cart');
             sticky.classList.add('bg-gray-100');
             setTimeout(() => sticky.classList.remove('bg-gray-100'), 200);
+            
+            if(window.innerWidth > 768 && document.getElementById('cart-modal').classList.contains('hidden')) {
+                // Optional: openCart();
+            }
         }
 
         function addWithOption(name, price, selectId) {
@@ -853,7 +837,6 @@
 
         function openCart() {
             cartModal.classList.remove('hidden');
-            // Disable body scroll
             document.body.style.overflow = 'hidden';
             setTimeout(() => {
                 cartPanel.classList.remove('translate-x-full');
@@ -898,22 +881,6 @@
             callModal.classList.remove('hidden');
         }
 
-        // Mobile menu logic
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when clicking a link
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-
-        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             renderBurgers();
             renderCombos(menuData.combos, 'combos-grid');

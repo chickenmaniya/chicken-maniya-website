@@ -1,0 +1,20 @@
+{
+  "name": "Chicken Maniya",
+  "short_name": "Maniya",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#D92626",
+  "theme_color": "#D92626",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

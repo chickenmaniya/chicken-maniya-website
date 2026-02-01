@@ -179,7 +179,7 @@
     </div>
 
     <!-- Hero Section (Reduced Height on Mobile) -->
-    <div class="hero-bg h-[40vh] md:h-[60vh] flex items-center justify-center text-center px-4 relative overflow-hidden">
+    <div class="hero-bg h-[50vh] md:h-[60vh] flex items-center justify-center text-center px-4 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-90"></div>
         <div class="max-w-4xl relative z-10 animate-fade-in-up w-full">
             <span class="bg-brand-red text-white px-3 py-1 rounded-full text-[10px] md:text-sm font-bold tracking-widest uppercase mb-2 inline-block shadow-lg">Est. 2024</span>
@@ -188,9 +188,15 @@
             </h1>
             <p class="text-gray-200 text-sm md:text-3xl mb-4 md:mb-8 font-light drop-shadow-md px-2">Succulent fried chicken & flame-grilled burgers.</p>
             
-            <div class="flex flex-col items-center gap-4 px-8 sm:px-0">
+            <div class="flex flex-col items-center gap-4 px-8 sm:px-0 w-full sm:w-auto mx-auto">
                 <div id="shop-status" class="bg-gray-800 text-white px-3 py-1 rounded-full text-xs md:text-sm font-bold uppercase tracking-wider shadow-lg flex items-center gap-2 border border-gray-600">
                     <span class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-500"></span> Loading...
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                    <button onclick="scrollToMenu()" class="bg-brand-red text-white font-heading text-lg md:text-xl px-8 py-3 rounded-lg hover:bg-red-700 transition shadow-lg border-2 border-brand-red w-full sm:w-auto flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                        <i class="fas fa-utensils"></i> View Menu
+                    </button>
                 </div>
                 
                 <script>
@@ -531,6 +537,20 @@
 
     <!-- Footer -->
     <footer id="contact" class="bg-brand-dark text-white pt-12 md:pt-20 pb-8 md:pb-10 border-t-8 border-brand-red">
+        
+        <!-- NEW "Also Available On" Section -->
+        <div class="max-w-7xl mx-auto px-4 mb-12 text-center">
+            <p class="text-gray-400 font-bold uppercase tracking-widest text-sm mb-4">Also Available On</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                 <a href="https://www.just-eat.co.uk/" target="_blank" class="bg-white text-brand-red font-bold text-sm px-6 py-3 rounded-full shadow hover:bg-gray-100 transition flex items-center justify-center gap-2 min-w-[150px]">
+                    <span class="bg-brand-red text-white w-5 h-5 rounded flex items-center justify-center text-[10px]"><i class="fas fa-home"></i></span> Just Eat
+                </a>
+                <a href="https://www.ubereats.com/" target="_blank" class="bg-gray-900 text-white font-bold text-sm px-6 py-3 rounded-full shadow hover:bg-black transition flex items-center justify-center gap-2 border border-gray-700 min-w-[150px]">
+                    <span class="text-[#06C167]">Uber</span> Eats
+                </a>
+            </div>
+        </div>
+
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
             <div>
                 <h3 class="font-heading text-3xl md:text-4xl font-bold text-brand-red mb-6 md:mb-8 tracking-wide">VISIT CHICKEN MANIYA</h3>

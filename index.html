@@ -171,6 +171,7 @@
                         <a href="#menu" class="hover:text-brand-red px-2 py-2 rounded-md text-lg font-medium transition duration-300">Burgers</a>
                         <a href="#buckets" class="hover:text-brand-red px-2 py-2 rounded-md text-lg font-medium transition duration-300">Buckets</a>
                         <a href="#combos" class="hover:text-brand-red px-2 py-2 rounded-md text-lg font-medium transition duration-300">Combos</a>
+                        <a href="#sides" class="hover:text-brand-red px-2 py-2 rounded-md text-lg font-medium transition duration-300">Sides</a>
                         <a href="#" onclick="alert('Menu PDF download simulation')" class="text-brand-yellow border border-brand-yellow hover:bg-brand-yellow hover:text-brand-dark px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wide transition duration-300 flex items-center gap-1">
                             <i class="fas fa-file-pdf"></i> Menu
                         </a>
@@ -198,6 +199,7 @@
             <a href="#buckets" class="bg-gray-100 text-gray-700 px-4 py-1.5 rounded-full text-sm font-bold border border-gray-200 focus:bg-brand-red focus:text-white active:bg-brand-red active:text-white transition">Buckets</a>
             <a href="#combos" class="bg-gray-100 text-gray-700 px-4 py-1.5 rounded-full text-sm font-bold border border-gray-200 focus:bg-brand-red focus:text-white active:bg-brand-red active:text-white transition">Combos</a>
             <a href="#bbq" class="bg-gray-100 text-gray-700 px-4 py-1.5 rounded-full text-sm font-bold border border-gray-200 focus:bg-brand-red focus:text-white active:bg-brand-red active:text-white transition">Wraps</a>
+            <a href="#sides" class="bg-gray-100 text-gray-700 px-4 py-1.5 rounded-full text-sm font-bold border border-gray-200 focus:bg-brand-red focus:text-white active:bg-brand-red active:text-white transition">Sides</a>
         </div>
     </div>
 
@@ -367,7 +369,7 @@
         </div>
 
         <!-- BBQ & Wraps Section -->
-        <div id="bbq" class="mb-16 scroll-mt-36">
+        <div id="bbq" class="mb-12 md:mb-24 scroll-mt-36">
             <div class="flex items-center mb-6">
                 <div class="h-8 md:h-10 w-1.5 bg-brand-red mr-3 md:mr-4 rounded"></div>
                 <h2 class="font-heading text-2xl md:text-5xl font-bold text-brand-dark uppercase">BBQ & Wraps</h2>
@@ -383,8 +385,8 @@
                             <p class="text-gray-600 text-[10px] md:text-xs md:mb-4 line-clamp-2 md:line-clamp-none">Breast fillet covered in sticky smoky bbq sauce with lettuce & mayo</p>
                         </div>
                         <div class="flex justify-between items-center mt-auto pt-2">
-                            <span class="font-heading text-lg md:text-2xl font-bold text-brand-dark">£6.29</span>
-                            <button onclick="addToCart(this, 'Smoky BBQ Burger', 6.29)" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
+                            <span class="font-heading text-lg md:text-2xl font-bold text-brand-dark">£4.99</span>
+                            <button onclick="addToCart(this, 'Smoky BBQ Burger', 4.99)" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
                         </div>
                     </div>
                 </div>
@@ -397,8 +399,8 @@
                             <p class="text-gray-600 text-[10px] md:text-xs md:mb-4 line-clamp-2 md:line-clamp-none">Breast fillet pieces in sticky smoky bbq sauce with lettuce & mayo in a tortilla wrap</p>
                         </div>
                         <div class="flex justify-between items-center mt-auto pt-2">
-                            <span class="font-heading text-lg md:text-2xl font-bold text-brand-dark">£6.59</span>
-                            <button onclick="addToCart(this, 'Smoky BBQ Wrap', 6.59)" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
+                            <span class="font-heading text-lg md:text-2xl font-bold text-brand-dark">£4.99</span>
+                            <button onclick="addToCart(this, 'Smoky BBQ Wrap', 4.99)" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
                         </div>
                     </div>
                 </div>
@@ -418,8 +420,8 @@
                             </div>
                         </div>
                         <div class="flex justify-between items-center mt-auto">
-                            <span class="font-heading text-lg md:text-2xl font-bold text-brand-dark">£5.99</span>
-                            <button onclick="addWithOption(this, 'Tortilla Wrap', 5.99, 'tortilla-fill')" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
+                            <span class="font-heading text-lg md:text-2xl font-bold text-brand-dark">£4.99</span>
+                            <button onclick="addWithOption(this, 'Tortilla Wrap', 4.99, 'tortilla-fill')" class="add-btn text-xs py-1"><i class="fas fa-plus"></i> Add</button>
                         </div>
                     </div>
                 </div>
@@ -458,6 +460,17 @@
                 </div>
                 
                 </div>
+        </div>
+
+        <!-- Sides Section -->
+        <div id="sides" class="mb-16 scroll-mt-36">
+            <div class="flex items-center mb-6">
+                <div class="h-8 md:h-10 w-1.5 bg-brand-red mr-3 md:mr-4 rounded"></div>
+                <h2 class="font-heading text-2xl md:text-5xl font-bold text-brand-dark uppercase">Sides & Drinks</h2>
+            </div>
+            <div id="sides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+                <!-- JS Populated -->
+            </div>
         </div>
 
         <!-- Reviews Section -->
@@ -649,25 +662,38 @@
             burgers: [
                 {name: "Fish Burger", image: "images/fish-burger.webp", desc: "Fish burger served with cheese, lettuce & mayo", price: 3.99},
                 {name: "Veggie Burger", image: "images/veggie-burger.webp", desc: "Veggie burger served with lettuce & mayo", price: 3.99, veggie: true},
-                {name: "Steak Burger", image: "images/steak-burger.webp", desc: "Chicken steak burger served with lettuce & mayo", price: 3.99},
-                {name: "Classic Burger", image: "images/classic-burger.webp", desc: "Breast fillet in original or spicy coating with lettuce & mayo", price: 5.99},
-                {name: "Supreme Burger", image: "images/supreme-burger.webp", desc: "Breast fillet (orig/spicy) with hash brown, cheese, lettuce, mayo & ketchup", price: 6.49},
-                {name: "Omega Burger", image: "images/omega-burger.webp", desc: "Breast fillet (orig/spicy) with 2 strips, cheese, lettuce & mayo", price: 6.99},
-                {name: "D-Decker", image: "images/d-decker.webp", desc: "2 breast fillets (orig/spicy) with 2 cheese slices, lettuce & mayo", price: 7.79},
+                {name: "Steak Burger", image: "images/steak-burger.webp", desc: "Chicken steak burger served with lettuce & mayo", price: 2.99, mealPrice: 4.99},
+                {name: "Classic Burger", image: "images/classic-burger.webp", desc: "Breast fillet in original or spicy coating with lettuce & mayo", price: 4.49},
+                {name: "Supreme Burger", image: "images/supreme-burger.webp", desc: "Breast fillet (orig/spicy) with hash brown, cheese, lettuce, mayo & ketchup", price: 5.49},
+                {name: "Omega Burger", image: "images/omega-burger.webp", desc: "Breast fillet (orig/spicy) with 2 strips, cheese, lettuce & mayo", price: 5.49},
+                {name: "D-Decker", image: "images/d-decker.webp", desc: "2 breast fillets (orig/spicy) with 2 cheese slices, lettuce & mayo", price: 5.99},
                 {name: "Mexican Burger", image: "images/mexican-burger.webp", desc: "Spicy breast fillet with onions, tomato, tortilla chips, lettuce, cheese & salsa", price: 6.79, spicy: true},
-                {name: "Ringer Burger", image: "images/ringer-burger.webp", desc: "Breast fillet (orig/spicy) with cheese, lettuce & mayo topped with onion rings", price: 6.69},
+                {name: "Ringer Burger", image: "images/ringer-burger.webp", desc: "Breast fillet (orig/spicy) with cheese, lettuce & mayo topped with onion rings", price: 5.49},
             ],
             combos: [
-                { title: 'JUST CHICKEN', image: 'images/just-chicken.webp', icon: 'fa-drumstick-bite', desc: 'Tender pieces of fried chicken in original or spicy coating', items: [{label: '1 pc', price: 3.79}, {label: '2 pcs', price: 4.79}, {label: '3 pcs', price: 5.79}, {label: '4 pcs', price: 6.79}] },
+                { title: 'JUST CHICKEN', image: 'images/just-chicken.webp', icon: 'fa-drumstick-bite', desc: 'Tender pieces of fried chicken in original or spicy coating', items: [{label: '1 pc', price: 1.80}, {label: '3 pcs', price: 4.79}, {label: '6 pcs', price: 5.79}, {label: '8 pcs', price: 11.99}] },
                 { title: 'COMBO BOX', image: 'images/combo-box.webp', icon: 'fa-box-open', desc: 'Fried chicken (orig/spicy) + 2 spicy wings & 1 spicy strip', items: [{label: '1 pc Box', price: 4.69}, {label: '2 pcs Box', price: 5.69}, {label: '3 pcs Box', price: 6.69}, {label: '4 pcs Box', price: 7.69}] },
-                { title: 'STRIPS', image: 'images/strips.webp', icon: 'fa-bacon', desc: 'Succulent tender strips of fried chicken in original or spicy coating', items: [{label: '3 pcs', price: 4.79}, {label: '5 pcs', price: 5.79}, {label: '8 pcs', price: 7.79}] },
-                { title: 'WINGS', image: 'images/wings.webp', icon: 'fa-fire', desc: 'Crispy chicken wings in spicy coating', items: [{label: '3 pcs', price: 3.79}, {label: '5 pcs', price: 4.79}, {label: '8 pcs', price: 5.79}, {label: '12 pcs', price: 6.79}], spicy: true },
-                { title: 'BITES', image: 'images/bites.webp', icon: 'fa-bowl-food', desc: 'Tasty bite-size pieces of fried chicken breast in original coating', items: [{label: '12 pcs', price: 4.79}, {label: '20 pcs', price: 5.79}] },
-                { title: 'NUGGETS', image: 'images/nuggets.webp', icon: 'fa-utensils', desc: 'Crispy succulent tender chicken pieces', items: [{label: '4 pcs', price: 3.49}, {label: '8 pcs', price: 4.49}, {label: '12 pcs', price: 5.49}] }
+                { title: 'STRIPS', image: 'images/strips.webp', icon: 'fa-bacon', desc: 'Succulent tender strips of fried chicken in original or spicy coating', items: [{label: '3 pcs', price: 3.99}, {label: '5 pcs', price: 5.50}, {label: '8 pcs', price: 6.50}] },
+                { title: 'WINGS', image: 'images/wings.webp', icon: 'fa-fire', desc: 'Crispy chicken wings in spicy coating', items: [{label: '3 pcs', price: 2.40}, {label: '5 pcs', price: 3.99}, {label: '8 pcs', price: 5.40}, {label: '12 pcs', price: 6.40}], spicy: true },
+                { title: 'CHICKEN BITES', image: 'images/bites.webp', icon: 'fa-bowl-food', desc: 'Tasty bite-size pieces of fried chicken breast', items: [{label: '12 pcs', price: 4.99}, {label: '20 pcs', price: 8.00}, {label: '6pc Meal (Chips+Drink)', price: 6.99}] },
+                { title: 'JALAPEÑO BITES', image: 'images/jalapeno-bites.webp', icon: 'fa-pepper-hot', desc: 'Cheese & Jalapeño bites', items: [{label: '12 pcs', price: 4.99}, {label: '20 pcs', price: 8.00}, {label: '6pc Meal (Chips+Drink)', price: 6.99}], spicy: true },
+                { title: 'NUGGETS', image: 'images/nuggets.webp', icon: 'fa-utensils', desc: 'Crispy succulent tender chicken pieces', items: [{label: '4 pcs', price: 2.50}, {label: '8 pcs', price: 4.49}, {label: '12 pcs', price: 6.50}] }
             ],
             bbq: [
-                 { title: 'Smoky BBQ Wings', image: 'images/bbq-wings.webp', icon: 'fa-fire', desc: 'Chicken wings covered in sticky smoky bbq sauce', items: [{label: '3 pcs', price: 4.09}, {label: '5 pcs', price: 5.09}, {label: '8 pcs', price: 6.09}, {label: '12 pcs', price: 7.09}]},
-                 { title: 'Smoky BBQ Strips', image: 'images/bbq-strips.webp', icon: 'fa-bacon', desc: 'Chicken strips covered in sticky smoky bbq sauce', items: [{label: '3 pcs', price: 5.09}, {label: '5 pcs', price: 6.09}, {label: '8 pcs', price: 7.09}]}
+                 { title: 'Smoky BBQ Wings', image: 'images/bbq-wings.webp', icon: 'fa-fire', desc: 'Chicken wings covered in sticky smoky bbq sauce', items: [{label: '3 pcs', price: 2.40}, {label: '5 pcs', price: 3.99}, {label: '8 pcs', price: 5.40}, {label: '12 pcs', price: 6.40}]},
+                 { title: 'Smoky BBQ Strips', image: 'images/bbq-strips.webp', icon: 'fa-bacon', desc: 'Chicken strips covered in sticky smoky bbq sauce', items: [{label: '3 pcs', price: 3.99}, {label: '5 pcs', price: 5.50}, {label: '8 pcs', price: 6.50}]}
+            ],
+            sides: [
+                { title: 'Chips', image: 'images/chips.webp', desc: 'Crispy golden fries', items: [{label: 'Small', price: 1.20}, {label: 'Large', price: 1.80}] },
+                { title: 'Onion Rings', image: 'images/onion-rings.webp', desc: 'Golden battered onion rings', items: [{label: '10 pcs', price: 3.99}, {label: '15 pcs', price: 5.50}] },
+                { 
+                    title: 'Soft Drinks', 
+                    image: 'images/drinks.webp', 
+                    desc: 'Ice cold refreshments', 
+                    type: 'drink',
+                    options: ['Coca Cola', 'Cola Zero', 'Diet Cola', '7UP', 'Fanta'],
+                    items: [{label: '330ml', price: 0.80}, {label: '1.25L', price: 3.50}]
+                }
             ]
         };
 
@@ -681,8 +707,17 @@
                 if(b.spicy) indicators += ' <span title="Spicy">🌶️</span>';
                 if(b.veggie) indicators += ' <span title="Vegetarian">🥬</span>';
 
+                let mealBtn = '';
+                if(b.mealPrice) {
+                    const upcharge = (b.mealPrice - b.price).toFixed(2);
+                    mealBtn = `
+                    <button onclick="addToCart(this, '${b.name} Meal', ${b.mealPrice})" class="w-full mt-2 bg-white text-brand-dark border border-brand-dark text-[10px] md:text-xs py-1 rounded flex items-center justify-center gap-1 hover:bg-gray-100 transition font-bold">
+                        Make it a Meal (+£${upcharge})
+                    </button>`;
+                }
+
                 return `
-                <div class="bg-white rounded-xl shadow-sm border border-transparent hover:border-brand-red menu-card flex flex-row md:flex-col h-28 md:h-full overflow-hidden">
+                <div class="bg-white rounded-xl shadow-sm border border-transparent hover:border-brand-red menu-card flex flex-row md:flex-col h-auto md:h-full overflow-hidden">
                     <img src="${b.image}" alt="${b.name}" class="w-28 h-full md:w-full md:h-48 object-cover bg-gray-100 shrink-0" onerror="this.src='https://placehold.co/600x400/D92626/white?text=${b.name.replace(/\s+/g, '+')}'">
                     <div class="p-3 md:p-6 flex flex-col flex-1 justify-between">
                         <div>
@@ -692,11 +727,14 @@
                             </div>
                             <p class="text-gray-500 text-[10px] md:text-sm md:mb-4 line-clamp-2 md:line-clamp-none">${b.desc}</p>
                         </div>
-                        <div class="flex justify-between items-center mt-auto md:block">
-                            <span class="md:hidden font-heading text-lg font-bold text-brand-red">£${b.price}</span>
-                            <button onclick="addToCart(this, '${b.name}', ${b.price})" class="add-btn text-xs py-1 px-3 md:w-full md:flex md:items-center md:justify-center md:gap-2 md:py-2 md:text-sm">
-                                <i class="fas fa-plus"></i> <span class="hidden md:inline">Add to Order</span> <span class="md:hidden">Add</span>
-                            </button>
+                        <div class="mt-auto">
+                            <div class="flex justify-between items-center md:block">
+                                <span class="md:hidden font-heading text-lg font-bold text-brand-red">£${b.price}</span>
+                                <button onclick="addToCart(this, '${b.name}', ${b.price})" class="add-btn text-xs py-1 px-3 md:w-full md:flex md:items-center md:justify-center md:gap-2 md:py-2 md:text-sm">
+                                    <i class="fas fa-plus"></i> <span class="hidden md:inline">Add to Order</span> <span class="md:hidden">Add</span>
+                                </button>
+                            </div>
+                            ${mealBtn}
                         </div>
                     </div>
                 </div>
@@ -728,10 +766,39 @@
 
         function renderCombos(dataArray, containerId) {
             const container = document.getElementById(containerId);
-            const html = dataArray.map(group => {
+            const html = dataArray.map((group, index) => {
                 let indicators = '';
                 if(group.spicy) indicators += ' <span title="Spicy">🌶️</span>';
                 
+                // Special rendering for drinks
+                if(group.type === 'drink') {
+                    return `
+                    <div class="bg-white rounded-xl shadow-md border border-gray-100 flex flex-col h-full menu-card overflow-hidden">
+                        <div class="flex flex-row md:flex-col h-24 md:h-auto items-center md:items-stretch">
+                             <img src="${group.image}" alt="${group.title}" class="w-28 h-24 md:w-full md:h-40 object-cover bg-gray-100 shrink-0" onerror="this.src='https://placehold.co/600x400/D92626/white?text=${group.title.replace(/\s+/g, '+')}'">
+                             <div class="p-3 md:p-5 flex-1">
+                                <h3 class="font-heading text-lg md:text-xl font-bold text-brand-dark leading-none mb-1">${group.title}</h3>
+                                <div class="bg-gray-50 p-1 md:p-2 rounded mb-2">
+                                    <select id="drink-flavor-${index}" class="w-full p-1 text-xs border rounded bg-white focus:border-brand-red outline-none">
+                                        ${group.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                                    </select>
+                                </div>
+                             </div>
+                        </div>
+                        
+                        <div class="p-2 md:p-5 pt-0 space-y-1 md:space-y-2 mt-auto border-t md:border-t-0 border-dashed border-gray-100">
+                            ${group.items.map(item => `
+                            <div class="flex justify-between items-center p-1 md:p-2 rounded border border-dashed border-gray-200">
+                                <span class="font-bold text-gray-700 text-xs md:text-sm">${item.label}</span>
+                                <button onclick="addWithOption(this, 'Drink (${item.label})', ${item.price}, 'drink-flavor-${index}')" class="add-btn text-[10px] md:text-xs py-0.5 px-2">
+                                    £${item.price.toFixed(2)} +
+                                </button>
+                            </div>
+                            `).join('')}
+                        </div>
+                    </div>`;
+                }
+
                 return `
                 <div class="bg-white rounded-xl shadow-md border border-gray-100 flex flex-col h-full menu-card overflow-hidden">
                     <div class="flex flex-row md:flex-col h-24 md:h-auto items-center md:items-stretch">
@@ -747,7 +814,7 @@
                         <div class="flex justify-between items-center p-1 md:p-2 rounded border border-dashed border-gray-200">
                             <span class="font-bold text-gray-700 text-xs md:text-sm">${item.label}</span>
                             <button onclick="addToCart(this, '${group.title} (${item.label})', ${item.price})" class="add-btn text-[10px] md:text-xs py-0.5 px-2">
-                                £${item.price} +
+                                £${item.price.toFixed(2)} +
                             </button>
                         </div>
                         `).join('')}
@@ -816,7 +883,13 @@
         function addWithOption(btnElement, name, price, selectId) {
             const select = document.getElementById(selectId);
             const option = select.value;
-            addToCart(btnElement, name, price, option);
+            // For drinks, format differently: "Coca Cola (330ml)" instead of "Drink (330ml) (Coca Cola)"
+            if(name.startsWith('Drink')) {
+                const size = name.match(/\((.*?)\)/)[1]; // Extract size
+                addToCart(btnElement, `${option} (${size})`, price);
+            } else {
+                addToCart(btnElement, name, price, option);
+            }
         }
 
         function removeFromCart(index) {
@@ -962,9 +1035,12 @@
             renderBurgers();
             renderCombos(menuData.combos, 'combos-grid');
             renderCombos(menuData.bbq, 'bbq-grid');
+            renderCombos(menuData.sides, 'sides-grid');
             initCart();
         });
 
     </script>
 </body>
 </html>
+
+
